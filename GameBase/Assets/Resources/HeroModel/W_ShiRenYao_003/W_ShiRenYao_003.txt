@@ -1,0 +1,15 @@
+birth 352 382
+run 10 29 true
+attack_001 35 60
+attack_002 66 86
+attack_003 116 138
+die_001 205 230
+hit_001 145 153
+hit_002 478 501
+hit_003 426 447
+hit_004 501 520
+hit_005 447 468
+hit_006 185 197
+hit_007 270 311 true
+hit_008 529 530 true
+idle_001 320 343 true
