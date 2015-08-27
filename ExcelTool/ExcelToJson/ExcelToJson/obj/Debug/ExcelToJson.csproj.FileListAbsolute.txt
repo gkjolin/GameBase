@@ -1,0 +1,5 @@
+E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\bin\Debug\ExcelToJson.exe.config
+E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelToJson.csprojResolveAssemblyReference.cache
+E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelTool.Form1.resources
+E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelToJson.Properties.Resources.resources
+E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelToJson.csproj.GenerateResource.Cache
