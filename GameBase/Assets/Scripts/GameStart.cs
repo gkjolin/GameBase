@@ -12,6 +12,7 @@ public class GameStart : MonoBehaviour
     {
         InitUI();
         LoadHero();
+        //Test();
     }
 
     void Update()
@@ -41,5 +42,10 @@ public class GameStart : MonoBehaviour
         _enemy.MyEnity.SetProperty("patrolTarget", _t.MyEnity);
 
         _t.MyEnity.SetProperty("patrolTarget",_enemy.MyEnity);
+    }
+
+    private void Test()
+    {
+        TestMemoryStream.TestWrite();
     }
 }

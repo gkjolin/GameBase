@@ -10,8 +10,8 @@ namespace Game
     {
         void Start()
         {
+            return;
             this.Invoke("Test", 3);
-
            // NavMeshAgent _agent = gameObject.GetComponent<NavMeshAgent>();
         }
 
