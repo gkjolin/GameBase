@@ -107,6 +107,13 @@ namespace Game
                 _list.Add(_action);
         }
 
+        public void Call(object o)
+        {
+            Debug.Log("99999999999999999999999 : " + o);
+            //if (_action!=null) _action();
+        }
+
+
         public void RemoveEventListener(string eventName, Action<object> _action)
         {
             if (_dictEvent.ContainsKey(eventName))

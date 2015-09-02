@@ -3,6 +3,8 @@ namespace SLua {
 	[LuaBinder(3)]
 	public class BindCustom {
 		public static void Bind(IntPtr l) {
+			Lua_CallCS.reg(l);
+			Lua_CSAPI.reg(l);
 			Lua_Custom.reg(l);
 			Lua_Deleg.reg(l);
 			Lua_foostruct.reg(l);

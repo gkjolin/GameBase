@@ -27,12 +27,14 @@ function main()
 	class.framet=0
 	class.max=0
 	
-	class:init()
+	--class:init()
+	class.init(class)
+	class.test(class,10,29)
+	class.test2(10,29)
 	return class
 end
 
 function class:init(count)
-
 	for _,v in ipairs(self.cubes) do
 		GameObject.Destroy(v[1])
 	end
@@ -61,8 +63,7 @@ function class:init(count)
 	end
 end
 
-function class:update() -- gc alloc is zero
-	
+function class:update() -- gc alloc is zero  -- function class.update(class)
 	for i,v in ipairs(self.cubes) do
 		local offset = i%2==1 and 5 or -5
 		local r = self.r+math.sin(Time.time)*offset
@@ -92,3 +93,13 @@ function class:update() -- gc alloc is zero
 		self.framet=self.framet-1
 	end
 end
+
+function class:test(a,b)
+print("add my function")
+return  a+b
+end 
+
+function class.test2(a,b)
+	print("add my function " .. (a+b))
+end 
+

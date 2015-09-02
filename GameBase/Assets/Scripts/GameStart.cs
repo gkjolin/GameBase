@@ -10,9 +10,9 @@ public class GameStart : MonoBehaviour
 
     void Start()
     {
-        InitUI();
-        LoadHero();
-        //Test();
+        /*InitUI();
+        LoadHero();*/
+        Test();
     }
 
     void Update()

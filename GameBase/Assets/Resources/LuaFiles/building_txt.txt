@@ -3,6 +3,7 @@
 -- source file: example_building.xls
 -- created at: Thu Mar 26 03:47:45 2015
 
+import "UnityEngine"
 
 --function main()
 --print("load building text")
@@ -21,19 +22,41 @@ function data:GetData()
 return data
 end
 
+data.GetData1 = function()
+	 return data 
+	 end
+
 --function GetData()
 --return data[1].args1[2]
 --end
 
 function main()
-	print("load building text")
 	return data
 end
 
-function CallBack()
-	print("call back ".."self")
+function GetData1()
+return data
+end
+
+function data.CallBack(count)
+	print("call back ".."self"..(count))
 end
 
 function Call(count)
 	print("count : "..count)
 end
+
+
+function data:test(a,b)
+	return a+b
+end 
+
+function data:SetTransform(transform)
+	print("transform name : "..transform.name)
+	transform.localPosition = Vector3(3,3,3)
+	transform:Rotate(Vector3(0,90,0))
+	local sub = transform:Find("sub")
+	print("sub name : " ..sub.name)
+end
+
+return data
