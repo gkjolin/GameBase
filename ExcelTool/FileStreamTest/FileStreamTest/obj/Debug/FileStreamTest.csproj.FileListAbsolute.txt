@@ -1,0 +1,11 @@
+E:\work_test\GameBase\ExcelTool\FileStreamTest\FileStreamTest\bin\Debug\FileStreamTest.exe.config
+E:\work_test\GameBase\ExcelTool\FileStreamTest\FileStreamTest\bin\Debug\FileStreamTest.exe
+E:\work_test\GameBase\ExcelTool\FileStreamTest\FileStreamTest\bin\Debug\FileStreamTest.pdb
+E:\work_test\GameBase\ExcelTool\FileStreamTest\FileStreamTest\obj\Debug\FileStreamTest.Properties.Resources.resources
+E:\work_test\GameBase\ExcelTool\FileStreamTest\FileStreamTest\obj\Debug\FileStreamTest.csproj.GenerateResource.Cache
+E:\work_test\GameBase\ExcelTool\FileStreamTest\FileStreamTest\obj\Debug\FileStreamTest.exe
+E:\work_test\GameBase\ExcelTool\FileStreamTest\FileStreamTest\obj\Debug\FileStreamTest.pdb
+E:\work_test\GameBase\ExcelTool\FileStreamTest\FileStreamTest\bin\Debug\Excel.dll
+E:\work_test\GameBase\ExcelTool\FileStreamTest\FileStreamTest\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\work_test\GameBase\ExcelTool\FileStreamTest\FileStreamTest\bin\Debug\Excel.pdb
+E:\work_test\GameBase\ExcelTool\FileStreamTest\FileStreamTest\obj\Debug\FileStreamTest.csprojResolveAssemblyReference.cache

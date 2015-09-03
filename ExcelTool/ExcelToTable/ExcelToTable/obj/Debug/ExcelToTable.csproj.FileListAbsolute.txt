@@ -1,0 +1,5 @@
+E:\work_test\GameBase\ExcelTool\ExcelToTable\ExcelToTable\bin\Debug\ExcelToTable.exe.config
+E:\work_test\GameBase\ExcelTool\ExcelToTable\ExcelToTable\obj\Debug\ExcelToTable.csprojResolveAssemblyReference.cache
+E:\work_test\GameBase\ExcelTool\ExcelToTable\ExcelToTable\obj\Debug\ExcelToTable.Form1.resources
+E:\work_test\GameBase\ExcelTool\ExcelToTable\ExcelToTable\obj\Debug\ExcelToTable.Properties.Resources.resources
+E:\work_test\GameBase\ExcelTool\ExcelToTable\ExcelToTable\obj\Debug\ExcelToTable.csproj.GenerateResource.Cache

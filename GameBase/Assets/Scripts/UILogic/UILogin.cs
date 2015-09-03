@@ -3,7 +3,10 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Game;
-public class UILogin : MonoBehaviour,IPointerClickHandler
+using SLua;
+using LuaInterface;
+
+public class UILogin : MonoBehaviour, IPointerClickHandler
 {
 
     private Transform mTransform;
@@ -12,14 +15,26 @@ public class UILogin : MonoBehaviour,IPointerClickHandler
     private InputField inputPassword;
     private GameObject goEffect;
 
-
     void Start()
     {
-        Init();
+        /*Init();
         InitEvent();
-        OnAddStage();
+        OnAddStage();*/
+        DoLua();
     }
 
+    private LuaSvr svr;
+    private LuaTable self;
+    private void DoLua()
+    {
+        Debug.Log("init lua in unity");
+        svr = new LuaSvr();
+        self = (LuaTable)svr.start("LuaFiles/UILoginLua");
+        self["transform"] = transform;
+        self["name"] = "UILogin";
+        LuaFunction Init = (LuaFunction)self["Init"];
+        Init.call(self);
+    }
 
     void OnAddStage()
     {
@@ -63,7 +78,7 @@ public class UILogin : MonoBehaviour,IPointerClickHandler
         Debug.Log("ScreenPointToWorldPointInRectangle> : " + globalMousePos3);
         RectTransformUtility.ScreenPointToLocalPointInRectangle(transform as RectTransform, data.position, data.pressEventCamera, out globalMousePos);
         btn_login.transform.localPosition = globalMousePos;
-        btn_login.transform.SetSiblingIndex(mTransform.GetChildCount()-1);//调增拖动物体的层级为最上层
+        btn_login.transform.SetSiblingIndex(mTransform.GetChildCount() - 1);//调增拖动物体的层级为最上层
     }
 
     private void OnPointerClick(PointerEventData data)
@@ -87,7 +102,7 @@ public class UILogin : MonoBehaviour,IPointerClickHandler
         //UIMgr.Instance.ShowUI(UITip.UIName, UIMgr.Layer.layer3);
         string username = inputName.text;
         string password = inputPassword.text;
-        if(username == "" || password == "")
+        if (username == "" || password == "")
         {
             UINotice.Instance.SetNotice("用户名和密码不能为空");
             //UITip.Instance.SetTip("用户名和密码不能为空");
@@ -103,7 +118,7 @@ public class UILogin : MonoBehaviour,IPointerClickHandler
         go = Instantiate(go) as GameObject;
         go.SetActive(true);
         go.transform.SetParent(mTransform);
-        go.transform.localPosition = new Vector3(0,0,-10);
+        go.transform.localPosition = new Vector3(0, 0, -10);
         go.transform.localScale = new Vector3(60f, 60f, 60f);
     }
 
@@ -129,4 +144,28 @@ public class UILogin : MonoBehaviour,IPointerClickHandler
     {
         Debug.Log("pointer click");
     }
+
+
+}
+
+[CustomLuaClassAttribute]
+public class CallCS
+{
+    public static void LuaCallCS()
+    {
+        Debug.Log("lua call cs success");
+    }
+
+    private static CallCS _instance;
+
+    public static CallCS Instance
+    {
+        get { if (_instance == null) { _instance = new CallCS(); } return CallCS._instance; }
+    }
+
+    public void CallTest()
+    {
+        Debug.Log("lua call cs success");
+    }
+
 }

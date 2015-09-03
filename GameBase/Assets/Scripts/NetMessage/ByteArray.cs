@@ -46,6 +46,8 @@ namespace Game
 
         public ByteArray()
         {
+            //BitConverter.isb
+            Encoding en = Encoding.Unicode;
             bw = new BinaryWriter(ms);
             br = new BinaryReader(ms);
         }
@@ -80,6 +82,11 @@ namespace Game
             bw.Write(value);
         }
         public void write(long value)
+        {
+            bw.Write(value);
+        }
+
+        public void write(short value)
         {
             bw.Write(value);
         }

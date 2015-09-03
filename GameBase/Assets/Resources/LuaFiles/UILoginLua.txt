@@ -1,0 +1,39 @@
+local csApi = require 'LuaFiles.LuaCallCsAPI'
+import "UnityEngine"
+
+if not UnityEngine.GameObject or not  UnityEngine.UI then
+	error("Click Make/All to generate lua wrap file")
+end
+
+local data = {}
+
+function main()
+	return data
+end
+
+function data:Init()
+	local transform = data.transform
+	print("init lua"..transform.name)
+	local btn_enter_transform = transform:Find("btn_login")
+	local btn_enter = btn_enter_transform:GetComponent("Button")
+	btn_enter.onClick:AddListener(function()
+		--transform.gameObject:SetActive(false)
+		--self.event:DispatcherEvent("luaCallCS",100,0)
+		--GameObject.Destroy(transform.gameObject)
+		CSAPI.Log("fuck")
+		--CallCS.LuaCallCS()
+		CSAPI.AddEventListener("luaCallCS",data.action2)
+		CSAPI.DispatcherEvent("luaCallCS",100,0)
+		CallCS.Instance:CallTest()
+		CSAPI.CallBack(data.action)
+
+	end)
+end
+
+function data.action()
+	print("action ----------------")
+end
+
+function data.action2(a)
+	print("action with args "..a)
+end

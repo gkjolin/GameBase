@@ -1,0 +1,20 @@
+local data={}
+
+function main()
+	return data
+end
+
+function data:DispatcherEvent(eventName,args,durationTime)
+	local event = data.event
+	if event == nil then
+		print("event is nil")
+	else
+		event:DispatcherEvent(eventName,args,durationTime)
+	end
+end
+
+function data.add(a)
+	print("//////////////////////// "..a)
+end
+
+return data

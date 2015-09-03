@@ -15,6 +15,7 @@ namespace Game
 
         public static void TestWrite()
         {
+            TestByteArrayWrite(); return;
             TestByteArray();
             return;
 
@@ -51,7 +52,14 @@ namespace Game
             byte[] _objBytes = SerializeUtil.encode(login);
             Login login2 = (Login)SerializeUtil.decoder(_objBytes);
             GameInput.Log("name :" + login2.name + " password " + login2.passwork);
+        }
 
+        public static void TestByteArrayWrite()
+        {
+            ByteArray ba = new ByteArray();
+            ba.write(5);
+            ByteArray ba2 = new ByteArray();
+            ba2.write(ba.getBuff());
         }
     }
 
