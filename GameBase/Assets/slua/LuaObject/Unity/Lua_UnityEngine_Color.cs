@@ -42,6 +42,50 @@ public class Lua_UnityEngine_Color : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int ToHexStringRGB(IntPtr l) {
+		try {
+			UnityEngine.Color self;
+			checkType(l,1,out self);
+			var ret=self.ToHexStringRGB();
+			pushValue(l,ret);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int ToHexStringRGBA(IntPtr l) {
+		try {
+			UnityEngine.Color self;
+			checkType(l,1,out self);
+			var ret=self.ToHexStringRGBA();
+			pushValue(l,ret);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int TryParseHexString_s(IntPtr l) {
+		try {
+			System.String a1;
+			checkType(l,1,out a1);
+			UnityEngine.Color a2;
+			var ret=UnityEngine.Color.TryParseHexString(a1,out a2);
+			pushValue(l,ret);
+			pushValue(l,a2);
+			return 2;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int Lerp_s(IntPtr l) {
 		try {
 			UnityEngine.Color a1;
@@ -455,6 +499,19 @@ public class Lua_UnityEngine_Color : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_maxColorComponent(IntPtr l) {
+		try {
+			UnityEngine.Color self;
+			checkType(l,1,out self);
+			pushValue(l,self.maxColorComponent);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int getItem(IntPtr l) {
 		try {
 			UnityEngine.Color self;
@@ -489,6 +546,9 @@ public class Lua_UnityEngine_Color : LuaObject {
 	}
 	static public void reg(IntPtr l) {
 		getTypeTable(l,"UnityEngine.Color");
+		addMember(l,ToHexStringRGB);
+		addMember(l,ToHexStringRGBA);
+		addMember(l,TryParseHexString_s);
 		addMember(l,Lerp_s);
 		addMember(l,op_Addition);
 		addMember(l,op_Subtraction);
@@ -516,6 +576,7 @@ public class Lua_UnityEngine_Color : LuaObject {
 		addMember(l,"grayscale",get_grayscale,null,true);
 		addMember(l,"linear",get_linear,null,true);
 		addMember(l,"gamma",get_gamma,null,true);
+		addMember(l,"maxColorComponent",get_maxColorComponent,null,true);
 		createTypeMetatable(l,constructor, typeof(UnityEngine.Color),typeof(System.ValueType));
 	}
 }

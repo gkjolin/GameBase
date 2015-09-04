@@ -1,0 +1,64 @@
+
+people = {}
+people.name = "people"
+people.call = function(self)
+	print("name >>>>>>>>>>>>>>>>>>>>>"..self.name)
+end
+
+function clone(source)
+	local target = {}
+	for key,v in pairs(source)do
+		target[key] = v
+	end
+	return target
+end
+
+people.new = function(name)
+	local sub = clone(people)
+	sub.name = name
+	return sub
+end
+
+function copy(dest,tab)
+	for key,v in pairs(tab) do
+		dest[key] = v
+	end
+end
+
+function people.test()
+	local sub = people.new("sub")
+	sub:call()
+end
+
+return people
+
+--[[
+--闭包式面向对象 私有方法，不能复制链表
+
+function people(name)
+	local self = {}
+	function init()
+		self.name = name
+	end
+	self.say = function()
+		print("hello "..self.name)
+	end
+	init()
+	return self
+end
+
+--local zhang = people("zhagnsan")
+--zhang.say()
+
+function man(name)
+	local self  = people(name)
+	self.sayHello= function()
+		print("sayHello "..self.name)
+	end
+	return self
+end
+
+local zyb = man("zyb")
+zyb.say()
+zyb.sayHello()
+]]--

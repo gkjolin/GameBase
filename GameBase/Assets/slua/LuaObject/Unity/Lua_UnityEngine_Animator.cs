@@ -784,6 +784,84 @@ public class Lua_UnityEngine_Animator : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int CrossFadeInFixedTime(IntPtr l) {
+		try {
+			int argc = LuaDLL.lua_gettop(l);
+			if(matchType(l,argc,2,typeof(int),typeof(float))){
+				UnityEngine.Animator self=(UnityEngine.Animator)checkSelf(l);
+				System.Int32 a1;
+				checkType(l,2,out a1);
+				System.Single a2;
+				checkType(l,3,out a2);
+				self.CrossFadeInFixedTime(a1,a2);
+				return 0;
+			}
+			else if(matchType(l,argc,2,typeof(string),typeof(float))){
+				UnityEngine.Animator self=(UnityEngine.Animator)checkSelf(l);
+				System.String a1;
+				checkType(l,2,out a1);
+				System.Single a2;
+				checkType(l,3,out a2);
+				self.CrossFadeInFixedTime(a1,a2);
+				return 0;
+			}
+			else if(matchType(l,argc,2,typeof(int),typeof(float),typeof(int))){
+				UnityEngine.Animator self=(UnityEngine.Animator)checkSelf(l);
+				System.Int32 a1;
+				checkType(l,2,out a1);
+				System.Single a2;
+				checkType(l,3,out a2);
+				System.Int32 a3;
+				checkType(l,4,out a3);
+				self.CrossFadeInFixedTime(a1,a2,a3);
+				return 0;
+			}
+			else if(matchType(l,argc,2,typeof(string),typeof(float),typeof(int))){
+				UnityEngine.Animator self=(UnityEngine.Animator)checkSelf(l);
+				System.String a1;
+				checkType(l,2,out a1);
+				System.Single a2;
+				checkType(l,3,out a2);
+				System.Int32 a3;
+				checkType(l,4,out a3);
+				self.CrossFadeInFixedTime(a1,a2,a3);
+				return 0;
+			}
+			else if(matchType(l,argc,2,typeof(string),typeof(float),typeof(int),typeof(float))){
+				UnityEngine.Animator self=(UnityEngine.Animator)checkSelf(l);
+				System.String a1;
+				checkType(l,2,out a1);
+				System.Single a2;
+				checkType(l,3,out a2);
+				System.Int32 a3;
+				checkType(l,4,out a3);
+				System.Single a4;
+				checkType(l,5,out a4);
+				self.CrossFadeInFixedTime(a1,a2,a3,a4);
+				return 0;
+			}
+			else if(matchType(l,argc,2,typeof(int),typeof(float),typeof(int),typeof(float))){
+				UnityEngine.Animator self=(UnityEngine.Animator)checkSelf(l);
+				System.Int32 a1;
+				checkType(l,2,out a1);
+				System.Single a2;
+				checkType(l,3,out a2);
+				System.Int32 a3;
+				checkType(l,4,out a3);
+				System.Single a4;
+				checkType(l,5,out a4);
+				self.CrossFadeInFixedTime(a1,a2,a3,a4);
+				return 0;
+			}
+			LuaDLL.luaL_error(l,"No matched override function to call");
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int CrossFade(IntPtr l) {
 		try {
 			int argc = LuaDLL.lua_gettop(l);
@@ -851,6 +929,72 @@ public class Lua_UnityEngine_Animator : LuaObject {
 				System.Single a4;
 				checkType(l,5,out a4);
 				self.CrossFade(a1,a2,a3,a4);
+				return 0;
+			}
+			LuaDLL.luaL_error(l,"No matched override function to call");
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int PlayInFixedTime(IntPtr l) {
+		try {
+			int argc = LuaDLL.lua_gettop(l);
+			if(matchType(l,argc,2,typeof(int))){
+				UnityEngine.Animator self=(UnityEngine.Animator)checkSelf(l);
+				System.Int32 a1;
+				checkType(l,2,out a1);
+				self.PlayInFixedTime(a1);
+				return 0;
+			}
+			else if(matchType(l,argc,2,typeof(string))){
+				UnityEngine.Animator self=(UnityEngine.Animator)checkSelf(l);
+				System.String a1;
+				checkType(l,2,out a1);
+				self.PlayInFixedTime(a1);
+				return 0;
+			}
+			else if(matchType(l,argc,2,typeof(int),typeof(int))){
+				UnityEngine.Animator self=(UnityEngine.Animator)checkSelf(l);
+				System.Int32 a1;
+				checkType(l,2,out a1);
+				System.Int32 a2;
+				checkType(l,3,out a2);
+				self.PlayInFixedTime(a1,a2);
+				return 0;
+			}
+			else if(matchType(l,argc,2,typeof(string),typeof(int))){
+				UnityEngine.Animator self=(UnityEngine.Animator)checkSelf(l);
+				System.String a1;
+				checkType(l,2,out a1);
+				System.Int32 a2;
+				checkType(l,3,out a2);
+				self.PlayInFixedTime(a1,a2);
+				return 0;
+			}
+			else if(matchType(l,argc,2,typeof(string),typeof(int),typeof(float))){
+				UnityEngine.Animator self=(UnityEngine.Animator)checkSelf(l);
+				System.String a1;
+				checkType(l,2,out a1);
+				System.Int32 a2;
+				checkType(l,3,out a2);
+				System.Single a3;
+				checkType(l,4,out a3);
+				self.PlayInFixedTime(a1,a2,a3);
+				return 0;
+			}
+			else if(matchType(l,argc,2,typeof(int),typeof(int),typeof(float))){
+				UnityEngine.Animator self=(UnityEngine.Animator)checkSelf(l);
+				System.Int32 a1;
+				checkType(l,2,out a1);
+				System.Int32 a2;
+				checkType(l,3,out a2);
+				System.Single a3;
+				checkType(l,4,out a3);
+				self.PlayInFixedTime(a1,a2,a3);
 				return 0;
 			}
 			LuaDLL.luaL_error(l,"No matched override function to call");
@@ -1044,6 +1188,18 @@ public class Lua_UnityEngine_Animator : LuaObject {
 		try {
 			UnityEngine.Animator self=(UnityEngine.Animator)checkSelf(l);
 			self.Rebind();
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int ApplyBuiltinRootMotion(IntPtr l) {
+		try {
+			UnityEngine.Animator self=(UnityEngine.Animator)checkSelf(l);
+			self.ApplyBuiltinRootMotion();
 			return 0;
 		}
 		catch(Exception e) {
@@ -1836,7 +1992,9 @@ public class Lua_UnityEngine_Animator : LuaObject {
 		addMember(l,IsInTransition);
 		addMember(l,MatchTarget);
 		addMember(l,InterruptMatchTarget);
+		addMember(l,CrossFadeInFixedTime);
 		addMember(l,CrossFade);
+		addMember(l,PlayInFixedTime);
 		addMember(l,Play);
 		addMember(l,SetTarget);
 		addMember(l,GetBoneTransform);
@@ -1847,6 +2005,7 @@ public class Lua_UnityEngine_Animator : LuaObject {
 		addMember(l,HasState);
 		addMember(l,Update);
 		addMember(l,Rebind);
+		addMember(l,ApplyBuiltinRootMotion);
 		addMember(l,StringToHash_s);
 		addMember(l,"isOptimizable",get_isOptimizable,null,true);
 		addMember(l,"isHuman",get_isHuman,null,true);

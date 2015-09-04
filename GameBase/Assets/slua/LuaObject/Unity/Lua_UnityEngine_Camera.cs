@@ -688,6 +688,32 @@ public class Lua_UnityEngine_Camera : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_opaqueSortMode(IntPtr l) {
+		try {
+			UnityEngine.Camera self=(UnityEngine.Camera)checkSelf(l);
+			pushEnum(l,(int)self.opaqueSortMode);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int set_opaqueSortMode(IntPtr l) {
+		try {
+			UnityEngine.Camera self=(UnityEngine.Camera)checkSelf(l);
+			UnityEngine.Rendering.OpaqueSortMode v;
+			checkEnum(l,2,out v);
+			self.opaqueSortMode=v;
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_transparencySortMode(IntPtr l) {
 		try {
 			UnityEngine.Camera self=(UnityEngine.Camera)checkSelf(l);
@@ -1112,6 +1138,32 @@ public class Lua_UnityEngine_Camera : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_stereoMirrorMode(IntPtr l) {
+		try {
+			UnityEngine.Camera self=(UnityEngine.Camera)checkSelf(l);
+			pushValue(l,self.stereoMirrorMode);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int set_stereoMirrorMode(IntPtr l) {
+		try {
+			UnityEngine.Camera self=(UnityEngine.Camera)checkSelf(l);
+			bool v;
+			checkType(l,2,out v);
+			self.stereoMirrorMode=v;
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_targetDisplay(IntPtr l) {
 		try {
 			UnityEngine.Camera self=(UnityEngine.Camera)checkSelf(l);
@@ -1363,6 +1415,7 @@ public class Lua_UnityEngine_Camera : LuaObject {
 		addMember(l,"hdr",get_hdr,set_hdr,true);
 		addMember(l,"orthographicSize",get_orthographicSize,set_orthographicSize,true);
 		addMember(l,"orthographic",get_orthographic,set_orthographic,true);
+		addMember(l,"opaqueSortMode",get_opaqueSortMode,set_opaqueSortMode,true);
 		addMember(l,"transparencySortMode",get_transparencySortMode,set_transparencySortMode,true);
 		addMember(l,"depth",get_depth,set_depth,true);
 		addMember(l,"aspect",get_aspect,set_aspect,true);
@@ -1382,6 +1435,7 @@ public class Lua_UnityEngine_Camera : LuaObject {
 		addMember(l,"stereoEnabled",get_stereoEnabled,null,true);
 		addMember(l,"stereoSeparation",get_stereoSeparation,set_stereoSeparation,true);
 		addMember(l,"stereoConvergence",get_stereoConvergence,set_stereoConvergence,true);
+		addMember(l,"stereoMirrorMode",get_stereoMirrorMode,set_stereoMirrorMode,true);
 		addMember(l,"targetDisplay",get_targetDisplay,set_targetDisplay,true);
 		addMember(l,"main",get_main,null,false);
 		addMember(l,"current",get_current,null,false);

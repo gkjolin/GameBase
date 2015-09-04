@@ -45,7 +45,6 @@ namespace SLua {
 			Lua_UnityEngine_LineRenderer.reg(l);
 			Lua_UnityEngine_MaterialPropertyBlock.reg(l);
 			Lua_UnityEngine_Graphics.reg(l);
-			Lua_UnityEngine_Resolution.reg(l);
 			Lua_UnityEngine_LightmapData.reg(l);
 			Lua_UnityEngine_LightmapsModeLegacy.reg(l);
 			Lua_UnityEngine_LightProbes.reg(l);
@@ -65,6 +64,7 @@ namespace SLua {
 			Lua_UnityEngine_SparseTexture.reg(l);
 			Lua_UnityEngine_RenderTexture.reg(l);
 			Lua_UnityEngine_ReflectionProbe.reg(l);
+			Lua_UnityEngine_LODFadeMode.reg(l);
 			Lua_UnityEngine_LOD.reg(l);
 			Lua_UnityEngine_LODGroup.reg(l);
 			Lua_UnityEngine_GradientColorKey.reg(l);
@@ -129,11 +129,8 @@ namespace SLua {
 			Lua_UnityEngine_UserAuthorization.reg(l);
 			Lua_UnityEngine_ApplicationInstallMode.reg(l);
 			Lua_UnityEngine_ApplicationSandboxType.reg(l);
-			Lua_UnityEngine_RenderingPath.reg(l);
-			Lua_UnityEngine_TransparencySortMode.reg(l);
 			Lua_UnityEngine_Camera.reg(l);
 			Lua_UnityEngine_ComputeShader.reg(l);
-			Lua_UnityEngine_ComputeBufferType.reg(l);
 			Lua_UnityEngine_ComputeBuffer.reg(l);
 			Lua_UnityEngine_Debug.reg(l);
 			Lua_UnityEngine_Display.reg(l);
@@ -224,6 +221,7 @@ namespace SLua {
 			Lua_UnityEngine_RigidbodySleepMode2D.reg(l);
 			Lua_UnityEngine_CollisionDetectionMode2D.reg(l);
 			Lua_UnityEngine_ForceMode2D.reg(l);
+			Lua_UnityEngine_RigidbodyConstraints2D.reg(l);
 			Lua_UnityEngine_Rigidbody2D.reg(l);
 			Lua_UnityEngine_Collider2D.reg(l);
 			Lua_UnityEngine_CircleCollider2D.reg(l);
@@ -344,7 +342,16 @@ namespace SLua {
 			Lua_UnityEngine_UIVertex.reg(l);
 			Lua_UnityEngine_CanvasRenderer.reg(l);
 			Lua_UnityEngine_RectTransformUtility.reg(l);
+			Lua_UnityEngine_VR_VRDeviceType.reg(l);
+			Lua_UnityEngine_VR_VRNode.reg(l);
+			Lua_UnityEngine_VR_VRSettings.reg(l);
+			Lua_UnityEngine_VR_VRDevice.reg(l);
+			Lua_UnityEngine_VR_InputTracking.reg(l);
+			Lua_UnityEngine_Resolution.reg(l);
 			Lua_UnityEngine_RenderBuffer.reg(l);
+			Lua_UnityEngine_RenderingPath.reg(l);
+			Lua_UnityEngine_TransparencySortMode.reg(l);
+			Lua_UnityEngine_ComputeBufferType.reg(l);
 			Lua_UnityEngine_LightType.reg(l);
 			Lua_UnityEngine_LightRenderMode.reg(l);
 			Lua_UnityEngine_LightShadows.reg(l);
@@ -368,6 +375,7 @@ namespace SLua {
 			Lua_UnityEngine_RenderTextureReadWrite.reg(l);
 			Lua_UnityEngine_LightmapsMode.reg(l);
 			Lua_UnityEngine_MaterialGlobalIlluminationFlags.reg(l);
+			Lua_UnityEngine_Rendering_OpaqueSortMode.reg(l);
 			Lua_UnityEngine_Rendering_RenderBufferLoadAction.reg(l);
 			Lua_UnityEngine_Rendering_RenderBufferStoreAction.reg(l);
 			Lua_UnityEngine_Rendering_BlendMode.reg(l);
@@ -379,9 +387,11 @@ namespace SLua {
 			Lua_UnityEngine_Rendering_AmbientMode.reg(l);
 			Lua_UnityEngine_Rendering_DefaultReflectionMode.reg(l);
 			Lua_UnityEngine_Rendering_CameraEvent.reg(l);
+			Lua_UnityEngine_Rendering_LightEvent.reg(l);
 			Lua_UnityEngine_Rendering_BuiltinRenderTextureType.reg(l);
 			Lua_UnityEngine_Rendering_PassType.reg(l);
 			Lua_UnityEngine_Rendering_ShadowCastingMode.reg(l);
+			Lua_UnityEngine_Rendering_GraphicsDeviceType.reg(l);
 			Lua_UnityEngine_Rendering_RenderTargetIdentifier.reg(l);
 			Lua_UnityEngine_Rendering_ReflectionProbeUsage.reg(l);
 			Lua_UnityEngine_Rendering_ReflectionProbeType.reg(l);
@@ -403,6 +413,10 @@ namespace SLua {
 			Lua_UnityEngine_Events_UnityEventCallState.reg(l);
 			Lua_UnityEngine_Events_UnityEventBase.reg(l);
 			Lua_UnityEngine_Events_UnityEvent.reg(l);
+			Lua_UnityEngine_Assertions_Assert.reg(l);
+			Lua_UnityEngine_Assertions_AssertionException.reg(l);
+			Lua_UnityEngine_Assertions_Comparers_FloatComparer.reg(l);
+			Lua_UnityEngine_Assertions_Must_MustExtensions.reg(l);
 		}
 	}
 }

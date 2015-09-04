@@ -149,26 +149,6 @@ public class Lua_UnityEngine_Graphics : LuaObject {
 				UnityEngine.Graphics.DrawMesh(a1,a2,a3,a4,a5,a6,a7,a8);
 				return 0;
 			}
-			else if(matchType(l,argc,1,typeof(UnityEngine.Mesh),typeof(UnityEngine.Vector3),typeof(UnityEngine.Quaternion),typeof(UnityEngine.Material),typeof(int),typeof(UnityEngine.Camera),typeof(int),typeof(UnityEngine.MaterialPropertyBlock))){
-				UnityEngine.Mesh a1;
-				checkType(l,1,out a1);
-				UnityEngine.Vector3 a2;
-				checkType(l,2,out a2);
-				UnityEngine.Quaternion a3;
-				checkType(l,3,out a3);
-				UnityEngine.Material a4;
-				checkType(l,4,out a4);
-				System.Int32 a5;
-				checkType(l,5,out a5);
-				UnityEngine.Camera a6;
-				checkType(l,6,out a6);
-				System.Int32 a7;
-				checkType(l,7,out a7);
-				UnityEngine.MaterialPropertyBlock a8;
-				checkType(l,8,out a8);
-				UnityEngine.Graphics.DrawMesh(a1,a2,a3,a4,a5,a6,a7,a8);
-				return 0;
-			}
 			else if(matchType(l,argc,1,typeof(UnityEngine.Mesh),typeof(UnityEngine.Matrix4x4),typeof(UnityEngine.Material),typeof(int),typeof(UnityEngine.Camera),typeof(int),typeof(UnityEngine.MaterialPropertyBlock),typeof(UnityEngine.Rendering.ShadowCastingMode))){
 				UnityEngine.Mesh a1;
 				checkType(l,1,out a1);
@@ -189,7 +169,27 @@ public class Lua_UnityEngine_Graphics : LuaObject {
 				UnityEngine.Graphics.DrawMesh(a1,a2,a3,a4,a5,a6,a7,a8);
 				return 0;
 			}
-			else if(matchType(l,argc,1,typeof(UnityEngine.Mesh),typeof(UnityEngine.Matrix4x4),typeof(UnityEngine.Material),typeof(int),typeof(UnityEngine.Camera),typeof(int),typeof(UnityEngine.MaterialPropertyBlock),typeof(bool),typeof(bool))){
+			else if(matchType(l,argc,1,typeof(UnityEngine.Mesh),typeof(UnityEngine.Vector3),typeof(UnityEngine.Quaternion),typeof(UnityEngine.Material),typeof(int),typeof(UnityEngine.Camera),typeof(int),typeof(UnityEngine.MaterialPropertyBlock))){
+				UnityEngine.Mesh a1;
+				checkType(l,1,out a1);
+				UnityEngine.Vector3 a2;
+				checkType(l,2,out a2);
+				UnityEngine.Quaternion a3;
+				checkType(l,3,out a3);
+				UnityEngine.Material a4;
+				checkType(l,4,out a4);
+				System.Int32 a5;
+				checkType(l,5,out a5);
+				UnityEngine.Camera a6;
+				checkType(l,6,out a6);
+				System.Int32 a7;
+				checkType(l,7,out a7);
+				UnityEngine.MaterialPropertyBlock a8;
+				checkType(l,8,out a8);
+				UnityEngine.Graphics.DrawMesh(a1,a2,a3,a4,a5,a6,a7,a8);
+				return 0;
+			}
+			else if(matchType(l,argc,1,typeof(UnityEngine.Mesh),typeof(UnityEngine.Matrix4x4),typeof(UnityEngine.Material),typeof(int),typeof(UnityEngine.Camera),typeof(int),typeof(UnityEngine.MaterialPropertyBlock),typeof(UnityEngine.Rendering.ShadowCastingMode),typeof(bool))){
 				UnityEngine.Mesh a1;
 				checkType(l,1,out a1);
 				UnityEngine.Matrix4x4 a2;
@@ -204,8 +204,8 @@ public class Lua_UnityEngine_Graphics : LuaObject {
 				checkType(l,6,out a6);
 				UnityEngine.MaterialPropertyBlock a7;
 				checkType(l,7,out a7);
-				System.Boolean a8;
-				checkType(l,8,out a8);
+				UnityEngine.Rendering.ShadowCastingMode a8;
+				checkEnum(l,8,out a8);
 				System.Boolean a9;
 				checkType(l,9,out a9);
 				UnityEngine.Graphics.DrawMesh(a1,a2,a3,a4,a5,a6,a7,a8,a9);
@@ -233,6 +233,28 @@ public class Lua_UnityEngine_Graphics : LuaObject {
 				UnityEngine.Graphics.DrawMesh(a1,a2,a3,a4,a5,a6,a7,a8,a9);
 				return 0;
 			}
+			else if(matchType(l,argc,1,typeof(UnityEngine.Mesh),typeof(UnityEngine.Matrix4x4),typeof(UnityEngine.Material),typeof(int),typeof(UnityEngine.Camera),typeof(int),typeof(UnityEngine.MaterialPropertyBlock),typeof(bool),typeof(bool))){
+				UnityEngine.Mesh a1;
+				checkType(l,1,out a1);
+				UnityEngine.Matrix4x4 a2;
+				checkType(l,2,out a2);
+				UnityEngine.Material a3;
+				checkType(l,3,out a3);
+				System.Int32 a4;
+				checkType(l,4,out a4);
+				UnityEngine.Camera a5;
+				checkType(l,5,out a5);
+				System.Int32 a6;
+				checkType(l,6,out a6);
+				UnityEngine.MaterialPropertyBlock a7;
+				checkType(l,7,out a7);
+				System.Boolean a8;
+				checkType(l,8,out a8);
+				System.Boolean a9;
+				checkType(l,9,out a9);
+				UnityEngine.Graphics.DrawMesh(a1,a2,a3,a4,a5,a6,a7,a8,a9);
+				return 0;
+			}
 			else if(matchType(l,argc,1,typeof(UnityEngine.Mesh),typeof(UnityEngine.Vector3),typeof(UnityEngine.Quaternion),typeof(UnityEngine.Material),typeof(int),typeof(UnityEngine.Camera),typeof(int),typeof(UnityEngine.MaterialPropertyBlock),typeof(UnityEngine.Rendering.ShadowCastingMode))){
 				UnityEngine.Mesh a1;
 				checkType(l,1,out a1);
@@ -252,28 +274,6 @@ public class Lua_UnityEngine_Graphics : LuaObject {
 				checkType(l,8,out a8);
 				UnityEngine.Rendering.ShadowCastingMode a9;
 				checkEnum(l,9,out a9);
-				UnityEngine.Graphics.DrawMesh(a1,a2,a3,a4,a5,a6,a7,a8,a9);
-				return 0;
-			}
-			else if(matchType(l,argc,1,typeof(UnityEngine.Mesh),typeof(UnityEngine.Matrix4x4),typeof(UnityEngine.Material),typeof(int),typeof(UnityEngine.Camera),typeof(int),typeof(UnityEngine.MaterialPropertyBlock),typeof(UnityEngine.Rendering.ShadowCastingMode),typeof(bool))){
-				UnityEngine.Mesh a1;
-				checkType(l,1,out a1);
-				UnityEngine.Matrix4x4 a2;
-				checkType(l,2,out a2);
-				UnityEngine.Material a3;
-				checkType(l,3,out a3);
-				System.Int32 a4;
-				checkType(l,4,out a4);
-				UnityEngine.Camera a5;
-				checkType(l,5,out a5);
-				System.Int32 a6;
-				checkType(l,6,out a6);
-				UnityEngine.MaterialPropertyBlock a7;
-				checkType(l,7,out a7);
-				UnityEngine.Rendering.ShadowCastingMode a8;
-				checkEnum(l,8,out a8);
-				System.Boolean a9;
-				checkType(l,9,out a9);
 				UnityEngine.Graphics.DrawMesh(a1,a2,a3,a4,a5,a6,a7,a8,a9);
 				return 0;
 			}
@@ -321,6 +321,30 @@ public class Lua_UnityEngine_Graphics : LuaObject {
 				UnityEngine.Rendering.ShadowCastingMode a9;
 				checkEnum(l,9,out a9);
 				System.Boolean a10;
+				checkType(l,10,out a10);
+				UnityEngine.Graphics.DrawMesh(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10);
+				return 0;
+			}
+			else if(matchType(l,argc,1,typeof(UnityEngine.Mesh),typeof(UnityEngine.Matrix4x4),typeof(UnityEngine.Material),typeof(int),typeof(UnityEngine.Camera),typeof(int),typeof(UnityEngine.MaterialPropertyBlock),typeof(UnityEngine.Rendering.ShadowCastingMode),typeof(bool),typeof(UnityEngine.Transform))){
+				UnityEngine.Mesh a1;
+				checkType(l,1,out a1);
+				UnityEngine.Matrix4x4 a2;
+				checkType(l,2,out a2);
+				UnityEngine.Material a3;
+				checkType(l,3,out a3);
+				System.Int32 a4;
+				checkType(l,4,out a4);
+				UnityEngine.Camera a5;
+				checkType(l,5,out a5);
+				System.Int32 a6;
+				checkType(l,6,out a6);
+				UnityEngine.MaterialPropertyBlock a7;
+				checkType(l,7,out a7);
+				UnityEngine.Rendering.ShadowCastingMode a8;
+				checkEnum(l,8,out a8);
+				System.Boolean a9;
+				checkType(l,9,out a9);
+				UnityEngine.Transform a10;
 				checkType(l,10,out a10);
 				UnityEngine.Graphics.DrawMesh(a1,a2,a3,a4,a5,a6,a7,a8,a9,a10);
 				return 0;

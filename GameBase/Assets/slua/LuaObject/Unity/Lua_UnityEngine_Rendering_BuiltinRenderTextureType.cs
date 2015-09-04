@@ -18,6 +18,7 @@ public class Lua_UnityEngine_Rendering_BuiltinRenderTextureType : LuaObject {
 		addMember(l,11,"GBuffer1");
 		addMember(l,12,"GBuffer2");
 		addMember(l,13,"GBuffer3");
+		addMember(l,14,"Reflections");
 		LuaDLL.lua_pop(l, 1);
 	}
 }

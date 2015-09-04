@@ -145,6 +145,17 @@ public class Lua_UnityEngine_SystemInfo : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_graphicsDeviceType(IntPtr l) {
+		try {
+			pushEnum(l,(int)UnityEngine.SystemInfo.graphicsDeviceType);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_graphicsDeviceVersion(IntPtr l) {
 		try {
 			pushValue(l,UnityEngine.SystemInfo.graphicsDeviceVersion);
@@ -410,6 +421,7 @@ public class Lua_UnityEngine_SystemInfo : LuaObject {
 		addMember(l,"graphicsDeviceVendor",get_graphicsDeviceVendor,null,false);
 		addMember(l,"graphicsDeviceID",get_graphicsDeviceID,null,false);
 		addMember(l,"graphicsDeviceVendorID",get_graphicsDeviceVendorID,null,false);
+		addMember(l,"graphicsDeviceType",get_graphicsDeviceType,null,false);
 		addMember(l,"graphicsDeviceVersion",get_graphicsDeviceVersion,null,false);
 		addMember(l,"graphicsShaderLevel",get_graphicsShaderLevel,null,false);
 		addMember(l,"graphicsMultiThreaded",get_graphicsMultiThreaded,null,false);

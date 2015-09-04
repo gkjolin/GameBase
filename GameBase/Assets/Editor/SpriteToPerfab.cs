@@ -56,7 +56,7 @@ public class SpriteToPerfab : MonoBehaviour
         {
             string fullname = cellFileInfo.FullName;
             string assetPath = fullname.Substring(fullname.IndexOf("Assets"));
-            _objsList.Add(Resources.LoadAssetAtPath(assetPath, typeof(Object)));
+            _objsList.Add(AssetDatabase.LoadAssetAtPath(assetPath, typeof(Object)));
         }
         BuildPipeline.BuildAssetBundle(null, _objsList.ToArray(), Application.dataPath + "/StreamingAssets/data/data.unity3D", BuildAssetBundleOptions.UncompressedAssetBundle, GetBuildTarget()); //把所有数据表打包到一个 assetbundle里
     }
@@ -78,7 +78,7 @@ public class SpriteToPerfab : MonoBehaviour
             {
                 string allPath = pngFile.FullName;
                 string assetPath = allPath.Substring(allPath.IndexOf("Assets"));
-                Sprite sprite = Resources.LoadAssetAtPath<Sprite>(assetPath);
+                Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
                 GameObject go = new GameObject(sprite.name);
                 go.AddComponent<SpriteRenderer>().sprite = sprite;
                 allPath = spriteDir + "/" + sprite.name + ".prefab";
@@ -107,7 +107,7 @@ public class SpriteToPerfab : MonoBehaviour
             {
                 string allPath = pngFile.FullName;
                 string assetPath = allPath.Substring(allPath.IndexOf("Assets"));
-                assets.Add(Resources.LoadAssetAtPath<Sprite>(assetPath));
+                assets.Add(AssetDatabase.LoadAssetAtPath<Sprite>(assetPath));
             }
             if (BuildPipeline.BuildAssetBundle(null, assets.ToArray(), path, BuildAssetBundleOptions.UncompressedAssetBundle, GetBuildTarget()))
             {
@@ -135,7 +135,7 @@ public class SpriteToPerfab : MonoBehaviour
             {
                 string allPath = pngFile.FullName;
                 string assetPath = allPath.Substring(allPath.IndexOf("Assets"));
-                assets.Add(Resources.LoadAssetAtPath<Sprite>(assetPath));
+                assets.Add(AssetDatabase.LoadAssetAtPath<Sprite>(assetPath));
             }
             if (BuildPipeline.BuildAssetBundle(null, assets.ToArray(), path, BuildAssetBundleOptions.UncompressedAssetBundle, BuildTarget.Android))
             {

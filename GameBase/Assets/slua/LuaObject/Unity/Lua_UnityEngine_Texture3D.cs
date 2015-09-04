@@ -54,6 +54,32 @@ public class Lua_UnityEngine_Texture3D : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int GetPixels32(IntPtr l) {
+		try {
+			int argc = LuaDLL.lua_gettop(l);
+			if(argc==1){
+				UnityEngine.Texture3D self=(UnityEngine.Texture3D)checkSelf(l);
+				var ret=self.GetPixels32();
+				pushValue(l,ret);
+				return 1;
+			}
+			else if(argc==2){
+				UnityEngine.Texture3D self=(UnityEngine.Texture3D)checkSelf(l);
+				System.Int32 a1;
+				checkType(l,2,out a1);
+				var ret=self.GetPixels32(a1);
+				pushValue(l,ret);
+				return 1;
+			}
+			LuaDLL.luaL_error(l,"No matched override function to call");
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int SetPixels(IntPtr l) {
 		try {
 			int argc = LuaDLL.lua_gettop(l);
@@ -71,6 +97,34 @@ public class Lua_UnityEngine_Texture3D : LuaObject {
 				System.Int32 a2;
 				checkType(l,3,out a2);
 				self.SetPixels(a1,a2);
+				return 0;
+			}
+			LuaDLL.luaL_error(l,"No matched override function to call");
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int SetPixels32(IntPtr l) {
+		try {
+			int argc = LuaDLL.lua_gettop(l);
+			if(argc==2){
+				UnityEngine.Texture3D self=(UnityEngine.Texture3D)checkSelf(l);
+				UnityEngine.Color32[] a1;
+				checkType(l,2,out a1);
+				self.SetPixels32(a1);
+				return 0;
+			}
+			else if(argc==3){
+				UnityEngine.Texture3D self=(UnityEngine.Texture3D)checkSelf(l);
+				UnityEngine.Color32[] a1;
+				checkType(l,2,out a1);
+				System.Int32 a2;
+				checkType(l,3,out a2);
+				self.SetPixels32(a1,a2);
 				return 0;
 			}
 			LuaDLL.luaL_error(l,"No matched override function to call");
@@ -132,7 +186,9 @@ public class Lua_UnityEngine_Texture3D : LuaObject {
 	static public void reg(IntPtr l) {
 		getTypeTable(l,"UnityEngine.Texture3D");
 		addMember(l,GetPixels);
+		addMember(l,GetPixels32);
 		addMember(l,SetPixels);
+		addMember(l,SetPixels32);
 		addMember(l,Apply);
 		addMember(l,"depth",get_depth,null,true);
 		addMember(l,"format",get_format,null,true);

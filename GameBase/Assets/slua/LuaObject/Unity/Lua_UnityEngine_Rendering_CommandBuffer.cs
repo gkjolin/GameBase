@@ -167,6 +167,132 @@ public class Lua_UnityEngine_Rendering_CommandBuffer : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int DrawProcedural(IntPtr l) {
+		try {
+			int argc = LuaDLL.lua_gettop(l);
+			if(argc==6){
+				UnityEngine.Rendering.CommandBuffer self=(UnityEngine.Rendering.CommandBuffer)checkSelf(l);
+				UnityEngine.Matrix4x4 a1;
+				checkType(l,2,out a1);
+				UnityEngine.Material a2;
+				checkType(l,3,out a2);
+				System.Int32 a3;
+				checkType(l,4,out a3);
+				UnityEngine.MeshTopology a4;
+				checkEnum(l,5,out a4);
+				System.Int32 a5;
+				checkType(l,6,out a5);
+				self.DrawProcedural(a1,a2,a3,a4,a5);
+				return 0;
+			}
+			else if(argc==7){
+				UnityEngine.Rendering.CommandBuffer self=(UnityEngine.Rendering.CommandBuffer)checkSelf(l);
+				UnityEngine.Matrix4x4 a1;
+				checkType(l,2,out a1);
+				UnityEngine.Material a2;
+				checkType(l,3,out a2);
+				System.Int32 a3;
+				checkType(l,4,out a3);
+				UnityEngine.MeshTopology a4;
+				checkEnum(l,5,out a4);
+				System.Int32 a5;
+				checkType(l,6,out a5);
+				System.Int32 a6;
+				checkType(l,7,out a6);
+				self.DrawProcedural(a1,a2,a3,a4,a5,a6);
+				return 0;
+			}
+			else if(argc==8){
+				UnityEngine.Rendering.CommandBuffer self=(UnityEngine.Rendering.CommandBuffer)checkSelf(l);
+				UnityEngine.Matrix4x4 a1;
+				checkType(l,2,out a1);
+				UnityEngine.Material a2;
+				checkType(l,3,out a2);
+				System.Int32 a3;
+				checkType(l,4,out a3);
+				UnityEngine.MeshTopology a4;
+				checkEnum(l,5,out a4);
+				System.Int32 a5;
+				checkType(l,6,out a5);
+				System.Int32 a6;
+				checkType(l,7,out a6);
+				UnityEngine.MaterialPropertyBlock a7;
+				checkType(l,8,out a7);
+				self.DrawProcedural(a1,a2,a3,a4,a5,a6,a7);
+				return 0;
+			}
+			LuaDLL.luaL_error(l,"No matched override function to call");
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int DrawProceduralIndirect(IntPtr l) {
+		try {
+			int argc = LuaDLL.lua_gettop(l);
+			if(argc==6){
+				UnityEngine.Rendering.CommandBuffer self=(UnityEngine.Rendering.CommandBuffer)checkSelf(l);
+				UnityEngine.Matrix4x4 a1;
+				checkType(l,2,out a1);
+				UnityEngine.Material a2;
+				checkType(l,3,out a2);
+				System.Int32 a3;
+				checkType(l,4,out a3);
+				UnityEngine.MeshTopology a4;
+				checkEnum(l,5,out a4);
+				UnityEngine.ComputeBuffer a5;
+				checkType(l,6,out a5);
+				self.DrawProceduralIndirect(a1,a2,a3,a4,a5);
+				return 0;
+			}
+			else if(argc==7){
+				UnityEngine.Rendering.CommandBuffer self=(UnityEngine.Rendering.CommandBuffer)checkSelf(l);
+				UnityEngine.Matrix4x4 a1;
+				checkType(l,2,out a1);
+				UnityEngine.Material a2;
+				checkType(l,3,out a2);
+				System.Int32 a3;
+				checkType(l,4,out a3);
+				UnityEngine.MeshTopology a4;
+				checkEnum(l,5,out a4);
+				UnityEngine.ComputeBuffer a5;
+				checkType(l,6,out a5);
+				System.Int32 a6;
+				checkType(l,7,out a6);
+				self.DrawProceduralIndirect(a1,a2,a3,a4,a5,a6);
+				return 0;
+			}
+			else if(argc==8){
+				UnityEngine.Rendering.CommandBuffer self=(UnityEngine.Rendering.CommandBuffer)checkSelf(l);
+				UnityEngine.Matrix4x4 a1;
+				checkType(l,2,out a1);
+				UnityEngine.Material a2;
+				checkType(l,3,out a2);
+				System.Int32 a3;
+				checkType(l,4,out a3);
+				UnityEngine.MeshTopology a4;
+				checkEnum(l,5,out a4);
+				UnityEngine.ComputeBuffer a5;
+				checkType(l,6,out a5);
+				System.Int32 a6;
+				checkType(l,7,out a6);
+				UnityEngine.MaterialPropertyBlock a7;
+				checkType(l,8,out a7);
+				self.DrawProceduralIndirect(a1,a2,a3,a4,a5,a6,a7);
+				return 0;
+			}
+			LuaDLL.luaL_error(l,"No matched override function to call");
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int SetRenderTarget(IntPtr l) {
 		try {
 			int argc = LuaDLL.lua_gettop(l);
@@ -634,6 +760,8 @@ public class Lua_UnityEngine_Rendering_CommandBuffer : LuaObject {
 		addMember(l,Clear);
 		addMember(l,DrawMesh);
 		addMember(l,DrawRenderer);
+		addMember(l,DrawProcedural);
+		addMember(l,DrawProceduralIndirect);
 		addMember(l,SetRenderTarget);
 		addMember(l,Blit);
 		addMember(l,GetTemporaryRT);

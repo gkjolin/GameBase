@@ -136,6 +136,22 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int Reflect_s(IntPtr l) {
+		try {
+			UnityEngine.Vector2 a1;
+			checkType(l,1,out a1);
+			UnityEngine.Vector2 a2;
+			checkType(l,2,out a2);
+			var ret=UnityEngine.Vector2.Reflect(a1,a2);
+			pushValue(l,ret);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int Dot_s(IntPtr l) {
 		try {
 			UnityEngine.Vector2 a1;
@@ -571,6 +587,28 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_down(IntPtr l) {
+		try {
+			pushValue(l,UnityEngine.Vector2.down);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_left(IntPtr l) {
+		try {
+			pushValue(l,UnityEngine.Vector2.left);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_right(IntPtr l) {
 		try {
 			pushValue(l,UnityEngine.Vector2.right);
@@ -623,6 +661,7 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 		addMember(l,Lerp_s);
 		addMember(l,MoveTowards_s);
 		addMember(l,Scale_s);
+		addMember(l,Reflect_s);
 		addMember(l,Dot_s);
 		addMember(l,Angle_s);
 		addMember(l,Distance_s);
@@ -649,6 +688,8 @@ public class Lua_UnityEngine_Vector2 : LuaObject {
 		addMember(l,"zero",get_zero,null,false);
 		addMember(l,"one",get_one,null,false);
 		addMember(l,"up",get_up,null,false);
+		addMember(l,"down",get_down,null,false);
+		addMember(l,"left",get_left,null,false);
 		addMember(l,"right",get_right,null,false);
 		createTypeMetatable(l,constructor, typeof(UnityEngine.Vector2),typeof(System.ValueType));
 	}

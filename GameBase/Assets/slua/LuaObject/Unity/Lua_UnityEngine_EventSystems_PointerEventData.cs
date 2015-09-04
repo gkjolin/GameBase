@@ -46,6 +46,32 @@ public class Lua_UnityEngine_EventSystems_PointerEventData : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_hovered(IntPtr l) {
+		try {
+			UnityEngine.EventSystems.PointerEventData self=(UnityEngine.EventSystems.PointerEventData)checkSelf(l);
+			pushValue(l,self.hovered);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int set_hovered(IntPtr l) {
+		try {
+			UnityEngine.EventSystems.PointerEventData self=(UnityEngine.EventSystems.PointerEventData)checkSelf(l);
+			System.Collections.Generic.List<UnityEngine.GameObject> v;
+			checkType(l,2,out v);
+			self.hovered=v;
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_pointerEnter(IntPtr l) {
 		try {
 			UnityEngine.EventSystems.PointerEventData self=(UnityEngine.EventSystems.PointerEventData)checkSelf(l);
@@ -318,58 +344,6 @@ public class Lua_UnityEngine_EventSystems_PointerEventData : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int get_worldPosition(IntPtr l) {
-		try {
-			UnityEngine.EventSystems.PointerEventData self=(UnityEngine.EventSystems.PointerEventData)checkSelf(l);
-			pushValue(l,self.worldPosition);
-			return 1;
-		}
-		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
-		}
-	}
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int set_worldPosition(IntPtr l) {
-		try {
-			UnityEngine.EventSystems.PointerEventData self=(UnityEngine.EventSystems.PointerEventData)checkSelf(l);
-			UnityEngine.Vector3 v;
-			checkType(l,2,out v);
-			self.worldPosition=v;
-			return 0;
-		}
-		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
-		}
-	}
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int get_worldNormal(IntPtr l) {
-		try {
-			UnityEngine.EventSystems.PointerEventData self=(UnityEngine.EventSystems.PointerEventData)checkSelf(l);
-			pushValue(l,self.worldNormal);
-			return 1;
-		}
-		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
-		}
-	}
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int set_worldNormal(IntPtr l) {
-		try {
-			UnityEngine.EventSystems.PointerEventData self=(UnityEngine.EventSystems.PointerEventData)checkSelf(l);
-			UnityEngine.Vector3 v;
-			checkType(l,2,out v);
-			self.worldNormal=v;
-			return 0;
-		}
-		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
-		}
-	}
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_clickTime(IntPtr l) {
 		try {
 			UnityEngine.EventSystems.PointerEventData self=(UnityEngine.EventSystems.PointerEventData)checkSelf(l);
@@ -579,6 +553,7 @@ public class Lua_UnityEngine_EventSystems_PointerEventData : LuaObject {
 		getTypeTable(l,"UnityEngine.EventSystems.PointerEventData");
 		addMember(l,IsPointerMoving);
 		addMember(l,IsScrolling);
+		addMember(l,"hovered",get_hovered,set_hovered,true);
 		addMember(l,"pointerEnter",get_pointerEnter,set_pointerEnter,true);
 		addMember(l,"lastPress",get_lastPress,null,true);
 		addMember(l,"rawPointerPress",get_rawPointerPress,set_rawPointerPress,true);
@@ -590,8 +565,6 @@ public class Lua_UnityEngine_EventSystems_PointerEventData : LuaObject {
 		addMember(l,"position",get_position,set_position,true);
 		addMember(l,"delta",get_delta,set_delta,true);
 		addMember(l,"pressPosition",get_pressPosition,set_pressPosition,true);
-		addMember(l,"worldPosition",get_worldPosition,set_worldPosition,true);
-		addMember(l,"worldNormal",get_worldNormal,set_worldNormal,true);
 		addMember(l,"clickTime",get_clickTime,set_clickTime,true);
 		addMember(l,"clickCount",get_clickCount,set_clickCount,true);
 		addMember(l,"scrollDelta",get_scrollDelta,set_scrollDelta,true);

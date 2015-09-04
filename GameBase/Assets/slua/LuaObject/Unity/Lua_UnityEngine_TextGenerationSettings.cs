@@ -163,6 +163,35 @@ public class Lua_UnityEngine_TextGenerationSettings : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_scaleFactor(IntPtr l) {
+		try {
+			UnityEngine.TextGenerationSettings self;
+			checkType(l,1,out self);
+			pushValue(l,self.scaleFactor);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int set_scaleFactor(IntPtr l) {
+		try {
+			UnityEngine.TextGenerationSettings self;
+			checkType(l,1,out self);
+			System.Single v;
+			checkType(l,2,out v);
+			self.scaleFactor=v;
+			setBack(l,self);
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_fontStyle(IntPtr l) {
 		try {
 			UnityEngine.TextGenerationSettings self;
@@ -488,6 +517,7 @@ public class Lua_UnityEngine_TextGenerationSettings : LuaObject {
 		addMember(l,"fontSize",get_fontSize,set_fontSize,true);
 		addMember(l,"lineSpacing",get_lineSpacing,set_lineSpacing,true);
 		addMember(l,"richText",get_richText,set_richText,true);
+		addMember(l,"scaleFactor",get_scaleFactor,set_scaleFactor,true);
 		addMember(l,"fontStyle",get_fontStyle,set_fontStyle,true);
 		addMember(l,"textAnchor",get_textAnchor,set_textAnchor,true);
 		addMember(l,"resizeTextForBestFit",get_resizeTextForBestFit,set_resizeTextForBestFit,true);

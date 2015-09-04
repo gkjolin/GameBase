@@ -441,6 +441,18 @@ public class Lua_UnityEngine_MaterialPropertyBlock : LuaObject {
 			return 0;
 		}
 	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_isEmpty(IntPtr l) {
+		try {
+			UnityEngine.MaterialPropertyBlock self=(UnityEngine.MaterialPropertyBlock)checkSelf(l);
+			pushValue(l,self.isEmpty);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
 	static public void reg(IntPtr l) {
 		getTypeTable(l,"UnityEngine.MaterialPropertyBlock");
 		addMember(l,SetFloat);
@@ -458,6 +470,7 @@ public class Lua_UnityEngine_MaterialPropertyBlock : LuaObject {
 		addMember(l,GetMatrix);
 		addMember(l,GetTexture);
 		addMember(l,Clear);
+		addMember(l,"isEmpty",get_isEmpty,null,true);
 		createTypeMetatable(l,constructor, typeof(UnityEngine.MaterialPropertyBlock));
 	}
 }

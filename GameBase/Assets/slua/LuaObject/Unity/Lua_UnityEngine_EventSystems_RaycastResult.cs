@@ -206,6 +206,93 @@ public class Lua_UnityEngine_EventSystems_RaycastResult : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_worldPosition(IntPtr l) {
+		try {
+			UnityEngine.EventSystems.RaycastResult self;
+			checkType(l,1,out self);
+			pushValue(l,self.worldPosition);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int set_worldPosition(IntPtr l) {
+		try {
+			UnityEngine.EventSystems.RaycastResult self;
+			checkType(l,1,out self);
+			UnityEngine.Vector3 v;
+			checkType(l,2,out v);
+			self.worldPosition=v;
+			setBack(l,self);
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_worldNormal(IntPtr l) {
+		try {
+			UnityEngine.EventSystems.RaycastResult self;
+			checkType(l,1,out self);
+			pushValue(l,self.worldNormal);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int set_worldNormal(IntPtr l) {
+		try {
+			UnityEngine.EventSystems.RaycastResult self;
+			checkType(l,1,out self);
+			UnityEngine.Vector3 v;
+			checkType(l,2,out v);
+			self.worldNormal=v;
+			setBack(l,self);
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_screenPosition(IntPtr l) {
+		try {
+			UnityEngine.EventSystems.RaycastResult self;
+			checkType(l,1,out self);
+			pushValue(l,self.screenPosition);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int set_screenPosition(IntPtr l) {
+		try {
+			UnityEngine.EventSystems.RaycastResult self;
+			checkType(l,1,out self);
+			UnityEngine.Vector2 v;
+			checkType(l,2,out v);
+			self.screenPosition=v;
+			setBack(l,self);
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_gameObject(IntPtr l) {
 		try {
 			UnityEngine.EventSystems.RaycastResult self;
@@ -256,6 +343,9 @@ public class Lua_UnityEngine_EventSystems_RaycastResult : LuaObject {
 		addMember(l,"depth",get_depth,set_depth,true);
 		addMember(l,"sortingLayer",get_sortingLayer,set_sortingLayer,true);
 		addMember(l,"sortingOrder",get_sortingOrder,set_sortingOrder,true);
+		addMember(l,"worldPosition",get_worldPosition,set_worldPosition,true);
+		addMember(l,"worldNormal",get_worldNormal,set_worldNormal,true);
+		addMember(l,"screenPosition",get_screenPosition,set_screenPosition,true);
 		addMember(l,"gameObject",get_gameObject,set_gameObject,true);
 		addMember(l,"isValid",get_isValid,null,true);
 		createTypeMetatable(l,constructor, typeof(UnityEngine.EventSystems.RaycastResult),typeof(System.ValueType));

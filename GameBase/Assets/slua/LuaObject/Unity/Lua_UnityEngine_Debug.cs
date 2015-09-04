@@ -357,6 +357,42 @@ public class Lua_UnityEngine_Debug : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int Assert_s(IntPtr l) {
+		try {
+			int argc = LuaDLL.lua_gettop(l);
+			if(argc==1){
+				System.Boolean a1;
+				checkType(l,1,out a1);
+				UnityEngine.Debug.Assert(a1);
+				return 0;
+			}
+			else if(argc==2){
+				System.Boolean a1;
+				checkType(l,1,out a1);
+				System.String a2;
+				checkType(l,2,out a2);
+				UnityEngine.Debug.Assert(a1,a2);
+				return 0;
+			}
+			else if(argc==3){
+				System.Boolean a1;
+				checkType(l,1,out a1);
+				System.String a2;
+				checkType(l,2,out a2);
+				System.Object[] a3;
+				checkParams(l,3,out a3);
+				UnityEngine.Debug.Assert(a1,a2,a3);
+				return 0;
+			}
+			LuaDLL.luaL_error(l,"No matched override function to call");
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_developerConsoleVisible(IntPtr l) {
 		try {
 			pushValue(l,UnityEngine.Debug.developerConsoleVisible);
@@ -405,6 +441,7 @@ public class Lua_UnityEngine_Debug : LuaObject {
 		addMember(l,LogException_s);
 		addMember(l,LogWarning_s);
 		addMember(l,LogWarningFormat_s);
+		addMember(l,Assert_s);
 		addMember(l,"developerConsoleVisible",get_developerConsoleVisible,set_developerConsoleVisible,false);
 		addMember(l,"isDebugBuild",get_isDebugBuild,null,false);
 		createTypeMetatable(l,constructor, typeof(UnityEngine.Debug));

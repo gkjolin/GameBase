@@ -18,6 +18,79 @@ public class Lua_UnityEngine_Light : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int AddCommandBuffer(IntPtr l) {
+		try {
+			UnityEngine.Light self=(UnityEngine.Light)checkSelf(l);
+			UnityEngine.Rendering.LightEvent a1;
+			checkEnum(l,2,out a1);
+			UnityEngine.Rendering.CommandBuffer a2;
+			checkType(l,3,out a2);
+			self.AddCommandBuffer(a1,a2);
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int RemoveCommandBuffer(IntPtr l) {
+		try {
+			UnityEngine.Light self=(UnityEngine.Light)checkSelf(l);
+			UnityEngine.Rendering.LightEvent a1;
+			checkEnum(l,2,out a1);
+			UnityEngine.Rendering.CommandBuffer a2;
+			checkType(l,3,out a2);
+			self.RemoveCommandBuffer(a1,a2);
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int RemoveCommandBuffers(IntPtr l) {
+		try {
+			UnityEngine.Light self=(UnityEngine.Light)checkSelf(l);
+			UnityEngine.Rendering.LightEvent a1;
+			checkEnum(l,2,out a1);
+			self.RemoveCommandBuffers(a1);
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int RemoveAllCommandBuffers(IntPtr l) {
+		try {
+			UnityEngine.Light self=(UnityEngine.Light)checkSelf(l);
+			self.RemoveAllCommandBuffers();
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int GetCommandBuffers(IntPtr l) {
+		try {
+			UnityEngine.Light self=(UnityEngine.Light)checkSelf(l);
+			UnityEngine.Rendering.LightEvent a1;
+			checkEnum(l,2,out a1);
+			var ret=self.GetCommandBuffers(a1);
+			pushValue(l,ret);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int GetLights_s(IntPtr l) {
 		try {
 			UnityEngine.LightType a1;
@@ -449,8 +522,25 @@ public class Lua_UnityEngine_Light : LuaObject {
 			return 0;
 		}
 	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_commandBufferCount(IntPtr l) {
+		try {
+			UnityEngine.Light self=(UnityEngine.Light)checkSelf(l);
+			pushValue(l,self.commandBufferCount);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
 	static public void reg(IntPtr l) {
 		getTypeTable(l,"UnityEngine.Light");
+		addMember(l,AddCommandBuffer);
+		addMember(l,RemoveCommandBuffer);
+		addMember(l,RemoveCommandBuffers);
+		addMember(l,RemoveAllCommandBuffers);
+		addMember(l,GetCommandBuffers);
 		addMember(l,GetLights_s);
 		addMember(l,"type",get_type,set_type,true);
 		addMember(l,"color",get_color,set_color,true);
@@ -468,6 +558,7 @@ public class Lua_UnityEngine_Light : LuaObject {
 		addMember(l,"renderMode",get_renderMode,set_renderMode,true);
 		addMember(l,"alreadyLightmapped",get_alreadyLightmapped,set_alreadyLightmapped,true);
 		addMember(l,"cullingMask",get_cullingMask,set_cullingMask,true);
+		addMember(l,"commandBufferCount",get_commandBufferCount,null,true);
 		createTypeMetatable(l,constructor, typeof(UnityEngine.Light),typeof(UnityEngine.Behaviour));
 	}
 }

@@ -131,6 +131,32 @@ public class Lua_UnityEngine_EventSystems_StandaloneInputModule : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_repeatDelay(IntPtr l) {
+		try {
+			UnityEngine.EventSystems.StandaloneInputModule self=(UnityEngine.EventSystems.StandaloneInputModule)checkSelf(l);
+			pushValue(l,self.repeatDelay);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int set_repeatDelay(IntPtr l) {
+		try {
+			UnityEngine.EventSystems.StandaloneInputModule self=(UnityEngine.EventSystems.StandaloneInputModule)checkSelf(l);
+			float v;
+			checkType(l,2,out v);
+			self.repeatDelay=v;
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_horizontalAxis(IntPtr l) {
 		try {
 			UnityEngine.EventSystems.StandaloneInputModule self=(UnityEngine.EventSystems.StandaloneInputModule)checkSelf(l);
@@ -244,6 +270,7 @@ public class Lua_UnityEngine_EventSystems_StandaloneInputModule : LuaObject {
 		addMember(l,Process);
 		addMember(l,"allowActivationOnMobileDevice",get_allowActivationOnMobileDevice,set_allowActivationOnMobileDevice,true);
 		addMember(l,"inputActionsPerSecond",get_inputActionsPerSecond,set_inputActionsPerSecond,true);
+		addMember(l,"repeatDelay",get_repeatDelay,set_repeatDelay,true);
 		addMember(l,"horizontalAxis",get_horizontalAxis,set_horizontalAxis,true);
 		addMember(l,"verticalAxis",get_verticalAxis,set_verticalAxis,true);
 		addMember(l,"submitButton",get_submitButton,set_submitButton,true);

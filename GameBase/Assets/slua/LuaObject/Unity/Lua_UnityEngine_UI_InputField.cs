@@ -667,6 +667,84 @@ public class Lua_UnityEngine_UI_InputField : LuaObject {
 			return 0;
 		}
 	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_caretPosition(IntPtr l) {
+		try {
+			UnityEngine.UI.InputField self=(UnityEngine.UI.InputField)checkSelf(l);
+			pushValue(l,self.caretPosition);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int set_caretPosition(IntPtr l) {
+		try {
+			UnityEngine.UI.InputField self=(UnityEngine.UI.InputField)checkSelf(l);
+			int v;
+			checkType(l,2,out v);
+			self.caretPosition=v;
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_selectionAnchorPosition(IntPtr l) {
+		try {
+			UnityEngine.UI.InputField self=(UnityEngine.UI.InputField)checkSelf(l);
+			pushValue(l,self.selectionAnchorPosition);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int set_selectionAnchorPosition(IntPtr l) {
+		try {
+			UnityEngine.UI.InputField self=(UnityEngine.UI.InputField)checkSelf(l);
+			int v;
+			checkType(l,2,out v);
+			self.selectionAnchorPosition=v;
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int get_selectionFocusPosition(IntPtr l) {
+		try {
+			UnityEngine.UI.InputField self=(UnityEngine.UI.InputField)checkSelf(l);
+			pushValue(l,self.selectionFocusPosition);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int set_selectionFocusPosition(IntPtr l) {
+		try {
+			UnityEngine.UI.InputField self=(UnityEngine.UI.InputField)checkSelf(l);
+			int v;
+			checkType(l,2,out v);
+			self.selectionFocusPosition=v;
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
 	static public void reg(IntPtr l) {
 		getTypeTable(l,"UnityEngine.UI.InputField");
 		addMember(l,MoveTextEnd);
@@ -704,6 +782,9 @@ public class Lua_UnityEngine_UI_InputField : LuaObject {
 		addMember(l,"multiLine",get_multiLine,null,true);
 		addMember(l,"asteriskChar",get_asteriskChar,set_asteriskChar,true);
 		addMember(l,"wasCanceled",get_wasCanceled,null,true);
+		addMember(l,"caretPosition",get_caretPosition,set_caretPosition,true);
+		addMember(l,"selectionAnchorPosition",get_selectionAnchorPosition,set_selectionAnchorPosition,true);
+		addMember(l,"selectionFocusPosition",get_selectionFocusPosition,set_selectionFocusPosition,true);
 		createTypeMetatable(l,null, typeof(UnityEngine.UI.InputField),typeof(UnityEngine.UI.Selectable));
 	}
 }

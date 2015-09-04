@@ -9,14 +9,7 @@ public class Lua_UnityEngine_Material : LuaObject {
 		try {
 			int argc = LuaDLL.lua_gettop(l);
 			UnityEngine.Material o;
-			if(matchType(l,argc,2,typeof(string))){
-				System.String a1;
-				checkType(l,2,out a1);
-				o=new UnityEngine.Material(a1);
-				pushValue(l,o);
-				return 1;
-			}
-			else if(matchType(l,argc,2,typeof(UnityEngine.Shader))){
+			if(matchType(l,argc,2,typeof(UnityEngine.Shader))){
 				UnityEngine.Shader a1;
 				checkType(l,2,out a1);
 				o=new UnityEngine.Material(a1);
@@ -527,6 +520,22 @@ public class Lua_UnityEngine_Material : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int SetOverrideTag(IntPtr l) {
+		try {
+			UnityEngine.Material self=(UnityEngine.Material)checkSelf(l);
+			System.String a1;
+			checkType(l,2,out a1);
+			System.String a2;
+			checkType(l,3,out a2);
+			self.SetOverrideTag(a1,a2);
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int Lerp(IntPtr l) {
 		try {
 			UnityEngine.Material self=(UnityEngine.Material)checkSelf(l);
@@ -857,6 +866,7 @@ public class Lua_UnityEngine_Material : LuaObject {
 		addMember(l,SetBuffer);
 		addMember(l,HasProperty);
 		addMember(l,GetTag);
+		addMember(l,SetOverrideTag);
 		addMember(l,Lerp);
 		addMember(l,SetPass);
 		addMember(l,CopyPropertiesFromMaterial);

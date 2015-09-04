@@ -1,4 +1,6 @@
 local csApi = require 'LuaFiles.LuaCallCsAPI'
+local luaStatic = require 'LuaFiles.LuaStatic'
+local luaClass = require 'LuaFiles.LuaClass'
 import "UnityEngine"
 
 if not UnityEngine.GameObject or not  UnityEngine.UI then
@@ -26,7 +28,8 @@ function data:Init()
 		CSAPI.DispatcherEvent("luaCallCS",100,0)
 		CallCS.Instance:CallTest()
 		CSAPI.CallBack(data.action)
-
+		print("index " .. luaStatic.name)
+		luaClass.test()
 	end)
 end
 

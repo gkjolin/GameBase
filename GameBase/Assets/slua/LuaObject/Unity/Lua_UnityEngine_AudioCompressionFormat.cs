@@ -12,6 +12,8 @@ public class Lua_UnityEngine_AudioCompressionFormat : LuaObject {
 		addMember(l,3,"MP3");
 		addMember(l,4,"VAG");
 		addMember(l,5,"HEVAG");
+		addMember(l,6,"XMA");
+		addMember(l,7,"AAC");
 		LuaDLL.lua_pop(l, 1);
 	}
 }

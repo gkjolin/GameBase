@@ -270,6 +270,19 @@ public class Lua_UnityEngine_Texture2D : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int GetRawTextureData(IntPtr l) {
+		try {
+			UnityEngine.Texture2D self=(UnityEngine.Texture2D)checkSelf(l);
+			var ret=self.GetRawTextureData();
+			pushValue(l,ret);
+			return 1;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int GetPixels(IntPtr l) {
 		try {
 			int argc = LuaDLL.lua_gettop(l);
@@ -637,6 +650,7 @@ public class Lua_UnityEngine_Texture2D : LuaObject {
 		addMember(l,SetPixels32);
 		addMember(l,LoadImage);
 		addMember(l,LoadRawTextureData);
+		addMember(l,GetRawTextureData);
 		addMember(l,GetPixels);
 		addMember(l,GetPixels32);
 		addMember(l,Apply);

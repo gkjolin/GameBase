@@ -213,18 +213,6 @@ public class Lua_UnityEngine_EventSystems_EventSystem : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int get_lastSelectedGameObject(IntPtr l) {
-		try {
-			UnityEngine.EventSystems.EventSystem self=(UnityEngine.EventSystems.EventSystem)checkSelf(l);
-			pushValue(l,self.lastSelectedGameObject);
-			return 1;
-		}
-		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
-		}
-	}
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_alreadySelecting(IntPtr l) {
 		try {
 			UnityEngine.EventSystems.EventSystem self=(UnityEngine.EventSystems.EventSystem)checkSelf(l);
@@ -248,7 +236,6 @@ public class Lua_UnityEngine_EventSystems_EventSystem : LuaObject {
 		addMember(l,"currentInputModule",get_currentInputModule,null,true);
 		addMember(l,"firstSelectedGameObject",get_firstSelectedGameObject,set_firstSelectedGameObject,true);
 		addMember(l,"currentSelectedGameObject",get_currentSelectedGameObject,null,true);
-		addMember(l,"lastSelectedGameObject",get_lastSelectedGameObject,null,true);
 		addMember(l,"alreadySelecting",get_alreadySelecting,null,true);
 		createTypeMetatable(l,null, typeof(UnityEngine.EventSystems.EventSystem),typeof(UnityEngine.EventSystems.UIBehaviour));
 	}

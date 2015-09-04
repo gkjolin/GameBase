@@ -5,19 +5,6 @@ using SLua;
 using System.Collections.Generic;
 public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int constructor(IntPtr l) {
-		try {
-			UnityEngine.ProceduralMaterial o;
-			o=new UnityEngine.ProceduralMaterial();
-			pushValue(l,o);
-			return 1;
-		}
-		catch(Exception e) {
-			LuaDLL.luaL_error(l, e.ToString());
-			return 0;
-		}
-	}
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int GetProceduralPropertyDescriptions(IntPtr l) {
 		try {
 			UnityEngine.ProceduralMaterial self=(UnityEngine.ProceduralMaterial)checkSelf(l);
@@ -572,6 +559,6 @@ public class Lua_UnityEngine_ProceduralMaterial : LuaObject {
 		addMember(l,"substanceProcessorUsage",get_substanceProcessorUsage,set_substanceProcessorUsage,false);
 		addMember(l,"preset",get_preset,set_preset,true);
 		addMember(l,"isReadable",get_isReadable,set_isReadable,true);
-		createTypeMetatable(l,constructor, typeof(UnityEngine.ProceduralMaterial),typeof(UnityEngine.Material));
+		createTypeMetatable(l,null, typeof(UnityEngine.ProceduralMaterial),typeof(UnityEngine.Material));
 	}
 }

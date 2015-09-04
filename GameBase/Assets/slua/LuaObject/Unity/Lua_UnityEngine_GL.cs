@@ -381,6 +381,17 @@ public class Lua_UnityEngine_GL : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static public int RenderTargetBarrier_s(IntPtr l) {
+		try {
+			UnityEngine.GL.RenderTargetBarrier();
+			return 0;
+		}
+		catch(Exception e) {
+			LuaDLL.luaL_error(l, e.ToString());
+			return 0;
+		}
+	}
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static public int get_TRIANGLES(IntPtr l) {
 		try {
 			pushValue(l,UnityEngine.GL.TRIANGLES);
@@ -546,6 +557,7 @@ public class Lua_UnityEngine_GL : LuaObject {
 		addMember(l,ClearWithSkybox_s);
 		addMember(l,InvalidateState_s);
 		addMember(l,IssuePluginEvent_s);
+		addMember(l,RenderTargetBarrier_s);
 		addMember(l,"TRIANGLES",get_TRIANGLES,null,false);
 		addMember(l,"TRIANGLE_STRIP",get_TRIANGLE_STRIP,null,false);
 		addMember(l,"QUADS",get_QUADS,null,false);

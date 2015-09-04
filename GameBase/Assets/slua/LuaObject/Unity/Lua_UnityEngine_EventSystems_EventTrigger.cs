@@ -243,10 +243,10 @@ public class Lua_UnityEngine_EventSystems_EventTrigger : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int get_delegates(IntPtr l) {
+	static public int get_triggers(IntPtr l) {
 		try {
 			UnityEngine.EventSystems.EventTrigger self=(UnityEngine.EventSystems.EventTrigger)checkSelf(l);
-			pushValue(l,self.delegates);
+			pushValue(l,self.triggers);
 			return 1;
 		}
 		catch(Exception e) {
@@ -255,12 +255,12 @@ public class Lua_UnityEngine_EventSystems_EventTrigger : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int set_delegates(IntPtr l) {
+	static public int set_triggers(IntPtr l) {
 		try {
 			UnityEngine.EventSystems.EventTrigger self=(UnityEngine.EventSystems.EventTrigger)checkSelf(l);
-			System.Collections.Generic.List<UnityEngine.EventSystems.EventTrigger.Entry> v;
+			List<UnityEngine.EventSystems.EventTrigger.Entry> v;
 			checkType(l,2,out v);
-			self.delegates=v;
+			self.triggers=v;
 			return 0;
 		}
 		catch(Exception e) {
@@ -287,7 +287,7 @@ public class Lua_UnityEngine_EventSystems_EventTrigger : LuaObject {
 		addMember(l,OnEndDrag);
 		addMember(l,OnSubmit);
 		addMember(l,OnCancel);
-		addMember(l,"delegates",get_delegates,set_delegates,true);
+		addMember(l,"triggers",get_triggers,set_triggers,true);
 		createTypeMetatable(l,null, typeof(UnityEngine.EventSystems.EventTrigger),typeof(UnityEngine.MonoBehaviour));
 	}
 }

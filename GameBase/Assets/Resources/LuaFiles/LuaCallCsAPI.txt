@@ -1,8 +1,33 @@
+local luaStatic = require 'LuaFiles.LuaStatic'
+
 local data={}
+data.name = "name"
+luaStatic.name = "luaStatic"
 
 function main()
+	print("luastatic name "..luaStatic.name)
+	local dd = {a=1,b=2}
+	dd.name = "d"
+	dd.index = 1
+	--dd.call = callSelf
+	dd.call2 = function() 
+		print("ddddddddddddddddddddddd")
+	end
+	
+	dd.call3 = call3;
+	
+	dd.call3()
+	function dd.call()
+		print("dddddd")
+	end
+	GetValues(dd)
 	return data
 end
+
+	function call3()
+		print("dddddddddddddddddddddddddd3")
+	end
+
 
 function data:DispatcherEvent(eventName,args,durationTime)
 	local event = data.event
@@ -15,6 +40,15 @@ end
 
 function data.add(a)
 	print("//////////////////////// "..a)
+end
+
+function GetValues(d)
+	local ins={}
+	for key,v in pairs(d)do
+		ins[key] = v
+	end
+	print("ins 888888888888888 "..ins.name )
+	d.call2()
 end
 
 return data

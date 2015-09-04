@@ -96,10 +96,10 @@ public class Lua_UnityEngine_PlatformEffector2D : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int get_sideAngleVariance(IntPtr l) {
+	static public int get_surfaceArc(IntPtr l) {
 		try {
 			UnityEngine.PlatformEffector2D self=(UnityEngine.PlatformEffector2D)checkSelf(l);
-			pushValue(l,self.sideAngleVariance);
+			pushValue(l,self.surfaceArc);
 			return 1;
 		}
 		catch(Exception e) {
@@ -108,12 +108,12 @@ public class Lua_UnityEngine_PlatformEffector2D : LuaObject {
 		}
 	}
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static public int set_sideAngleVariance(IntPtr l) {
+	static public int set_surfaceArc(IntPtr l) {
 		try {
 			UnityEngine.PlatformEffector2D self=(UnityEngine.PlatformEffector2D)checkSelf(l);
 			float v;
 			checkType(l,2,out v);
-			self.sideAngleVariance=v;
+			self.surfaceArc=v;
 			return 0;
 		}
 		catch(Exception e) {
@@ -126,7 +126,7 @@ public class Lua_UnityEngine_PlatformEffector2D : LuaObject {
 		addMember(l,"useOneWay",get_useOneWay,set_useOneWay,true);
 		addMember(l,"useSideFriction",get_useSideFriction,set_useSideFriction,true);
 		addMember(l,"useSideBounce",get_useSideBounce,set_useSideBounce,true);
-		addMember(l,"sideAngleVariance",get_sideAngleVariance,set_sideAngleVariance,true);
+		addMember(l,"surfaceArc",get_surfaceArc,set_surfaceArc,true);
 		createTypeMetatable(l,constructor, typeof(UnityEngine.PlatformEffector2D),typeof(UnityEngine.Effector2D));
 	}
 }
