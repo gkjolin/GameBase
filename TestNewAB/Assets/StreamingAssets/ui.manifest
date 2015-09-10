@@ -1,0 +1,118 @@
+ManifestFileVersion: 0
+CRC: 1831371516
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c420e8ef3c342453a0c55456efe6a202
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 75957c18d05791510cbdd301a328d69f
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/UI/js_sl_dzi_02.png
+- Assets/UI/Jz_jz_tiao.png
+- Assets/UI/Jsk.png
+- Assets/UI/Js_sb_an_zi_02.png
+- Assets/UI/js_sl_pj_tx.png
+- Assets/UI/Ty_sz_01.png
+- Assets/UI/js_sl_dzi_01.png
+- Assets/UI/js_sb_dzi_01.png
+- Assets/UI/base_btn_bg.png
+- Assets/UI/Js_sb_an_zi_01.png
+- Assets/UI/touxiangkuang_zhu.PNG
+- Assets/UI/js_sl_bz.png
+- Assets/UI/Button_3 .png
+- Assets/UI/js_sl_dzi_04.png
+- Assets/UI/bar_bg.png
+- Assets/UI/Jinengcao_zoutiao.PNG
+- Assets/UI/Bosstiao_01.PNG
+- Assets/UI/js_sl_pj_01.png
+- Assets/UI/Fangxiang_di02.png
+- Assets/UI/Js_biaotou.PNG
+- Assets/UI/headicon3_1.png
+- Assets/UI/Ty_jnk_ding.png
+- Assets/UI/Jinengcao_jn_di.PNG
+- Assets/UI/Jz_load_tou.png
+- Assets/UI/box_board.png
+- Assets/UI/js_sb_dzi_02.png
+- Assets/UI/Ty_fanhui.png
+- Assets/UI/Cj_xz_tou.png
+- Assets/UI/js_sl_pj_03.png
+- Assets/UI/js_sl_zi_01.png
+- Assets/UI/icon_pet_frame.png
+- Assets/UI/efct_loading_bg2.png
+- Assets/UI/Xr_xzk.png
+- Assets/UI/Zd_combo_tu.png
+- Assets/UI/Zd_txk_xtk.png
+- Assets/UI/js_sl_zi_02.png
+- Assets/UI/js_sb_zi_03.png
+- Assets/UI/Ty_txk_01_bt.png
+- Assets/UI/js_sl_pj_02.png
+- Assets/UI/Zd_combo_zi_01.png
+- Assets/UI/js_sl_dzi_03.png
+- Assets/UI/Ty_jnk_hunfu.png
+- Assets/UI/Cj_xml.png
+- Assets/UI/Fangxiang_di.PNG
+- Assets/UI/js_sb_dzi_04.png
+- Assets/UI/Cj_xz_di.png
+- Assets/UI/Shuru_bantoutiao.PNG
+- Assets/UI/btn_dec.png
+- Assets/UI/guiderect.png
+- Assets/UI/Jinengcao_pg_di.PNG
+- Assets/UI/Zd_combo_zi_02.png
+- Assets/UI/btn_query.png
+- Assets/UI/Button_4 .png
+- Assets/UI/Fangxiang_anniu.PNG
+- Assets/UI/btn_return.png
+- Assets/UI/Cj_ms_01.png
+- Assets/UI/Jz_jz_ta.png
+- Assets/UI/btn_gantanhao.png
+- Assets/UI/Jz_load_tiao.png
+- Assets/UI/box_inner.png
+- Assets/UI/role_fect_bagV2.png
+- Assets/UI/btn_bg_green.png
+- Assets/UI/js_sb_dzi_03.png
+- Assets/UI/selefct_rect.png
+- Assets/UI/js_sb_dzi_05.png
+- Assets/UI/Anniu_02.PNG
+- Assets/UI/Button_4_dis .png
+- Assets/UI/Anniu_01_gaoliang.PNG
+- Assets/UI/headicon2_1.png
+- Assets/UI/box_new_frame.png
+- Assets/UI/Logo_di.PNG
+- Assets/UI/Ty_dh.png
+- Assets/UI/headicon1_1.png
+- Assets/UI/base_box_Concave50.png
+- Assets/UI/role_fect_bagV1.png
+- Assets/UI/js_sb_ditu.png
+- Assets/UI/Anniu_01_changtai.PNG
+- Assets/UI/Ty_txk_01_xz.png
+- Assets/UI/Cj_an_zi_01.png
+- Assets/UI/js_sb_zi_01.png
+- Assets/UI/Dl_an_zi_01.png
+- Assets/UI/Ty_aniu_01_xuanzhong.png
+- Assets/UI/Ty_txk_01_di.png
+- Assets/UI/btn_add.png
+- Assets/UI/Cj_ms_02.png
+- Assets/UI/js_sb_zi_02.png
+- Assets/UI/js_sl_ditu.png
+- Assets/UI/btn_close.png
+- Assets/UI/js_sl_xx.png
+- Assets/UI/Zd_combo_di.png
+- Assets/UI/Js_sl_fgt.png
+- Assets/UI/Jz_wz_02.png
+- Assets/UI/Anniu_02_changtai.PNG
+- Assets/UI/Jz_load_tiao_di.png
+- Assets/UI/Jz_wz_01.png
+- Assets/UI/icon_panlalpha80%.png
+- Assets/UI/Ty_aniu_01.png
+- Assets/UI/Hetiji_di.PNG
+- Assets/UI/btn_bg_common.png
+- Assets/UI/Anniu_02_gaoliang.PNG
+- Assets/UI/Zd_txk_di.png
+Dependencies: []
