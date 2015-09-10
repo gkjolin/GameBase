@@ -62,7 +62,7 @@ public class SpriteToPerfab : MonoBehaviour
     }
 
 
-    [MenuItem("MyMenu/SpriteToPerfab")]
+    /*[MenuItem("MyMenu/SpriteToPerfab")]
     static private void MakePerfab()
     {
         string spriteDir = Application.dataPath + "/Resources/PerfabBindSprite";
@@ -87,8 +87,8 @@ public class SpriteToPerfab : MonoBehaviour
                 GameObject.DestroyImmediate(go);
             }
         }
-    }
-    [MenuItem("MyMenu/BuildSpriteToAssetBundle")]
+    }*/
+    /*[MenuItem("MyMenu/BuildSpriteToAssetBundle")]
     //把 图片资源打包成 assetbundle
     static private void BuildSpriteToAssetBundle()
     {
@@ -114,9 +114,9 @@ public class SpriteToPerfab : MonoBehaviour
                 Debug.Log("build sprite to assetbundle success");
             }
         }
-    }
+    }*/
 
-    [MenuItem("MyMenu/BuildSpriteToAssetBundleOfAndroid")]
+    /*[MenuItem("MyMenu/BuildSpriteToAssetBundleOfAndroid")]
     //把 图片资源打包成 assetbundle
     static private void BuildSpriteToAssetBundleOfAndroid()
     {
@@ -142,7 +142,7 @@ public class SpriteToPerfab : MonoBehaviour
                 Debug.Log("build sprite to assetbundle success");
             }
         }
-    }
+    }*/
     static private BuildTarget GetBuildTarget()
     {
         BuildTarget target = BuildTarget.WebPlayer;
