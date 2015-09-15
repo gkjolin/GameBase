@@ -9,6 +9,8 @@ public class GlobalData : MonoBehaviour
     public const int SCREEN_WIDTH = 1136;
 
     public const int SCREEN_HEIGHT = 640;
+
+    public const bool isRealse = false;
     public static GlobalData Instance
     {
         get { return _instance; }

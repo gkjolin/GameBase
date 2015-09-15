@@ -25,7 +25,18 @@ public class UIMgr : MonoBehaviour
     private Transform scene;
     private Transform[] arr_layers;
     private Dictionary<string, GameObject> dict_ui = new Dictionary<string, GameObject>();
-
+    public Transform Layer1
+    {
+        get { return layer1; }
+    }
+    public Transform Layer2
+    {
+        get { return layer2; }
+    }
+    public Transform Layer3
+    {
+        get { return layer3; }
+    }
     public static UIMgr Instance
     {
         get { return UIMgr._instance; }
@@ -67,8 +78,9 @@ public class UIMgr : MonoBehaviour
     /// <param name="name"></param>
     /// <param name="layer"></param>
     /// <param name="OnLoadCallBack"></param>
-    public void ShowUI<T>(string name, Layer layer = Layer.layer2, Action<GameObject> OnLoadCallBack = null) where T : MonoBehaviour
+    public void ShowUI<T>(string name, Layer layer = Layer.layer2, Action<GameObject> OnLoadCallBack = null,bool isReasle = false) where T : MonoBehaviour
     {
+        
         GameObject go = null;
         if (dict_ui.ContainsKey(name))
         {
@@ -82,7 +94,14 @@ public class UIMgr : MonoBehaviour
         }
         else
         {
-            LoadUI<T>(name, OnLoadCallBack, layer);
+            if (GlobalData.isRealse)
+            {
+                LoadUI<T>(name, OnLoadCallBack, layer);
+            }
+            else
+            {
+                this.LoadUIPrefab<T>(name,layer);
+            }
         }
     }
 
@@ -177,7 +196,7 @@ public class UIMgr : MonoBehaviour
         return path_head + name + ui_ex;
     }
 
-    private Dictionary<string, GameObject> _dict_UIPrefabs = new Dictionary<string, GameObject>();
+   // private Dictionary<string, GameObject> _dict_UIPrefabs = new Dictionary<string, GameObject>();
     /// <summary>
     /// 开发阶段使用 加载本地资源
     /// </summary>
@@ -185,17 +204,17 @@ public class UIMgr : MonoBehaviour
     /// <param name="uiname"></param>
     /// <param name="layer"></param>
     /// <returns></returns>
-    public T LoadUIPrefab<T>(string uiname, Layer layer = Layer.layer2) where T : MonoBehaviour
+    public T LoadUIPrefab<T>(string uiname, Layer layer = Layer.layer2, Action<GameObject> OnLoadCallBack = null) where T : MonoBehaviour
     {
         GameObject go = null;
-        if (_dict_UIPrefabs.ContainsKey(uiname))
+        if (dict_ui.ContainsKey(uiname))
         {
-            go = _dict_UIPrefabs[uiname];
+            go = dict_ui[uiname];
         }
         else
         {
             go = GameObject.Instantiate(Resources.Load("Prefabs/" + uiname)) as GameObject;
-            _dict_UIPrefabs.Add(uiname, go);
+            dict_ui.Add(uiname, go);
             go.transform.SetParent(arr_layers[(int)layer]);
             (go.transform as RectTransform).anchoredPosition = Vector3.zero;
             go.transform.localScale = Vector3.one;
@@ -204,12 +223,16 @@ public class UIMgr : MonoBehaviour
         {
             go.AddComponent<T>();
         }
+        if (OnLoadCallBack != null)
+        {
+            OnLoadCallBack(go);
+        }
         return go.GetComponent<T>();
     }
 
     public T GetUILogicScript<T>(string uiname) where T : MonoBehaviour
     {
-        GameObject go = _dict_UIPrefabs[uiname];
+        GameObject go = dict_ui[uiname];
         T t = go.GetComponent<T>();
         if (t != null)
         {
@@ -220,14 +243,14 @@ public class UIMgr : MonoBehaviour
 
     public void SetUIPrefabVisible(string name, bool visible)
     {
-        GameObject go = _dict_UIPrefabs[name];
+        GameObject go = dict_ui[name];
         go.SetActive(visible);
     }
 
     public void DestoryUIPrefab(string name)
     {
-        GameObject go = _dict_UIPrefabs[name];
-        _dict_UIPrefabs.Remove(name);
+        GameObject go = dict_ui[name];
+        dict_ui.Remove(name);
         Destroy(go);
     }
 
