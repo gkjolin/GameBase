@@ -38,6 +38,8 @@ namespace Game
             _myEnity.Transform.gameObject.AddComponent<EnityBind>().Owner = _myEnity;
 
             GameInput.Instance.OnUpdate += patrolComponent.Update;
+
+ 
         }
 
         /// <summary>

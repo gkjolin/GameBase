@@ -10,6 +10,7 @@ namespace Game
     {
         private RectTransform barTransfrom;
         private UILifeBar2 _uilifeBar;
+        public string key;
         public override void Init()
         {
             LoadLifeBar();

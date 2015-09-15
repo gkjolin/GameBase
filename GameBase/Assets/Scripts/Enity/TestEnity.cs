@@ -39,6 +39,10 @@ namespace Game
             _myEnity.Transform.gameObject.AddComponent<EnityBind>().Owner = _myEnity;
 
             //GameInput.Instance.OnUpdate += patrolComponent.Update;
+
+            //test
+            LifeBarComponent life = _myEnity.AddComponent<LifeBarComponent>();
+            life.key = "test add";
             GetCamera();
         }
         /// <summary>

@@ -24,6 +24,11 @@ public class CSAPI
         DataEventSource.Instance.AddEventListener(eventName, _action);
     }
 
+    public static void TestT<T>(string name)where T:MonoBehaviour
+    {
+        UIMgr.Instance.LoadUIPrefab<T>(name);
+    }
+
     public static void CallBack(Action _action)
     {
         if (_action != null) { _action(); }

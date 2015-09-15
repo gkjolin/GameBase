@@ -46,6 +46,8 @@ public class GameStart : MonoBehaviour
 
     private void Test()
     {
+        TestEnity _t = new TestEnity();
+        return;
         TestMemoryStream.TestWrite();
     }
 }

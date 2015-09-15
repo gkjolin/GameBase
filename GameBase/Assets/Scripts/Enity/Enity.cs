@@ -62,26 +62,10 @@ namespace Game
             }
         }
 
-        public void SetProperty(string key, object value)
+        public void SetProperty(string key, object value, bool isDispatcher = false)
         {
-            /*if (_dictProperty.ContainsKey(key))
-            {
-                _dictProperty[key] = value;
-            }
-            else
-            {
-                _dictProperty.Add(key, value);
-            }*/
-
-            try
-            {
-                _dictProperty[key] = value;
-                Event.DispatcherEvent(key);
-            }
-            catch (System.Exception ex)
-            {
-                Debug.Log(ex);
-            }
+            _dictProperty[key] = value;
+            if (isDispatcher) Event.DispatcherEvent(key);
         }
 
         public bool HasProperty(string key)
@@ -102,6 +86,35 @@ namespace Game
         {
             _dictComponent.Add(key, component);
             component.Enity = this;
+        }
+
+        public T AddComponent<T>() where T : BaseComponent
+        {
+            string key = typeof(T).Name;
+            if (_dictComponent.ContainsKey(key))
+            {
+                return (T)_dictComponent[key];
+            }
+            T t = System.Activator.CreateInstance<T>();
+            t.Enity = this;
+            _dictComponent.Add(key, t);
+            return t;
+        }
+
+        public void RemoveComponent<T>() where T : BaseComponent
+        {
+            string key = typeof(T).Name;
+            RemoveComponent(key);
+        }
+
+        public T GetComponent<T>() where T : BaseComponent
+        {
+            string key = typeof(T).Name;
+            if (_dictComponent.ContainsKey(key))
+            {
+                return (T)_dictComponent[key];
+            }
+            return null;
         }
 
         public void RemoveComponent(string key)
