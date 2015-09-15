@@ -37,6 +37,7 @@ public class GameInput : MonoBehaviour
     public void JoystickMove(Vector2 arg0)
     {
         Vector3 _v3 = new Vector3(arg0.x, 0, arg0.y);
+        if (GlobalData.hero == null) return;
         GlobalData.hero.MyEnity.SetProperty("actionName", "run01");
         GlobalData.hero.MyEnity.SetProperty("rotation", _v3);
         //GlobalData.hero.Animator.Play("run01");
