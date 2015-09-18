@@ -18,12 +18,14 @@ namespace FileStreamTest
         public Form1()
         {
             InitializeComponent();
-            //ExcelToJson();
-            TestType.Test2();
+            //TestType.Test2();
+            ExcelToJson();
+            //GenerateData.Generate();
         }
 
         private T ConvertExcel<T>(string fullPath, string fileName)
         {
+            //Activator.CreateInstanceFrom()
             T t=Activator.CreateInstance<T>();
             FileStream fs = File.Open(fullPath, FileMode.Open, FileAccess.Read);
             IExcelDataReader dataReader = ExcelReaderFactory.CreateOpenXmlReader(fs);
@@ -116,11 +118,11 @@ namespace FileStreamTest
             string filed = "";
             for (int i = 0; i < _files.Length; i++)
             {
-                filed += "public " + _types[i] + " " + _files[i] + ";";
+                filed += "\r\n\t\tpublic " + _types[i] + " " + _files[i] + ";";
             }
 
-            string className = @"public class " + fileName.Substring(0, fileName.Length - 5) + " {";
-            string content = @"" + strHead + className + filed + "} }";
+            string className = "\tpublic class " + fileName.Substring(0, fileName.Length - 5) + " \r\n\t{";
+            string content = "" + strHead + className + filed + "\r\n\t} \r\n}";
             Console.WriteLine("content  : " + content);
             WriteToCS(fileName, content);
         }

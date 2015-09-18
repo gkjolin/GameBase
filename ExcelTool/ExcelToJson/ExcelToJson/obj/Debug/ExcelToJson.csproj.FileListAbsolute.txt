@@ -1,5 +1,10 @@
 E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\bin\Debug\ExcelToJson.exe.config
-E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelToJson.csprojResolveAssemblyReference.cache
-E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelTool.Form1.resources
+E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\bin\Debug\ExcelToJson.exe
+E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\bin\Debug\ExcelToJson.pdb
+E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\bin\Debug\Excel.dll
+E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\bin\Debug\ICSharpCode.SharpZipLib.dll
+E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\bin\Debug\Excel.pdb
 E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelToJson.Properties.Resources.resources
 E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelToJson.csproj.GenerateResource.Cache
+E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelToJson.exe
+E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelToJson.pdb

@@ -53,6 +53,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GenerateData.cs" />
     <Compile Include="libs\LitJson\IJsonWrapper.cs" />
     <Compile Include="libs\LitJson\JsonData.cs" />
     <Compile Include="libs\LitJson\JsonException.cs" />
@@ -64,6 +65,8 @@
     <Compile Include="libs\LitJson\ParserToken.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StaticData\name.cs" />
+    <Compile Include="StaticData\tips.cs" />
     <Compile Include="TestType.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

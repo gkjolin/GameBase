@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LitJson;
 
-namespace ExcelTool
+namespace ExcelToJson
 {
     public partial class Form1 : Form
     {
@@ -19,9 +19,10 @@ namespace ExcelTool
         {
             InitializeComponent();
             Console.WriteLine("start build ");
-            return;
             ExcelToJson();
+            return;
         }
+
 
         private void ConvertExcel(string fullPath, string fileName)
         {
@@ -63,9 +64,9 @@ namespace ExcelTool
             string fn = fileName.Replace("xlsx", "json");
             if (Directory.Exists("D://tables//json/") == false)
             {
-                Directory.CreateDirectory("D://tables//json/");
+                Directory.CreateDirectory("E://tables//json/");
             }
-            string path = "D://tables//json/" + fn;
+            string path = "E://tables//json/" + fn;
             FileInfo fi = new FileInfo(path);
             StreamWriter sw = fi.CreateText();
             sw.Write(json);
@@ -75,7 +76,7 @@ namespace ExcelTool
 
         private void ExcelToJson()
         {
-            string directory_url = "D:\\tables\\";
+            string directory_url = "E:\\tables\\";
             DirectoryInfo _directoryInfo = new DirectoryInfo(directory_url);
             FileInfo[] arrFiles = _directoryInfo.GetFiles("*.xlsx", SearchOption.TopDirectoryOnly);
             for (int l = 0; l < arrFiles.Length; l++)
@@ -84,6 +85,5 @@ namespace ExcelTool
                 ConvertExcel(arrFiles[l].FullName, arrFiles[l].Name);
             }
         }
-
     }
 }
