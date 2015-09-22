@@ -8,3 +8,4 @@ E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelToJson.Pr
 E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelToJson.csproj.GenerateResource.Cache
 E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelToJson.exe
 E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelToJson.pdb
+E:\work_test\GameBase\ExcelTool\ExcelToJson\ExcelToJson\obj\Debug\ExcelToJson.csprojResolveAssemblyReference.cache
