@@ -41,28 +41,27 @@ namespace Game
             }
         }
 
+        private bool isAB = false;
+        private AssetBundle ab_text;
         /// <summary>
         /// 文本加载
         /// </summary>
         public string LoadTxtTable(string tableName)
         {
-            /*TextAsset ta = Resources.Load("Data/"+tableName, typeof(TextAsset)) as TextAsset;  //notice 如果文本中有 中文， 编码格式改为 utf-8 才能显示  同步方法
-            Debug.Log("loadtable content :"+ta.text);
-            return ta.text;*/
-
-            /*AssetBundle ab = AssetBundle.CreateFromFile(Application.streamingAssetsPath + "/data/" + tableName + ".unity3D");
-            TextAsset ta = ab.mainAsset as TextAsset;
-            return ta.text;*/
+            if (!isAB)
+            {
+                TextAsset ta = Resources.Load("Data/" + tableName, typeof(TextAsset)) as TextAsset;  //notice 如果文本中有 中文， 编码格式改为 utf-8 才能显示  同步方法
+                Debug.Log("loadtable content :" + ta.text);
+                return ta.text;
+            }
+            
             if (ab_text == null)
             {
                 ab_text = AssetBundle.CreateFromFile(Application.streamingAssetsPath + "/data/data.unity3D");
             }
-            //AssetBundle ab = AssetBundle.CreateFromFile(Application.streamingAssetsPath + "/data/data.unity3D");
-            TextAsset ta = ab_text.LoadAsset(tableName) as TextAsset;
-            return ta.text;
+            TextAsset ta1 = ab_text.LoadAsset(tableName) as TextAsset;
+            return ta1.text;
         }
-
-        private AssetBundle ab_text;
 
         //start batch load asset
         private List<string> _list = new List<string>();

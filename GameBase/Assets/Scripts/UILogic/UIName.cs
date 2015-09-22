@@ -7,6 +7,7 @@ namespace Game
 {
     public class UIName
     {
+        public const string UIRegister = "UIRegister";
         public const string UIFightStart = "UIFightStart";
         public const string UIFightMain = "UIFightMain";
         public const string UIFightWin = "UIFightWin";

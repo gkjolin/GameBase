@@ -7,7 +7,7 @@ public class TestCameraFit : MonoBehaviour
     {
         Debug.Log("Screen height :" + Screen.height + "   width : " + Screen.width);
         int ManualWidth = GlobalData.SCREEN_WIDTH;
-        int ManualHeight = GlobalData.SCREEN_HEIGHT;
+        int ManualHeight = GlobalData.SCREEN_WIDTH;
         int manualHeight;
         if (System.Convert.ToSingle(Screen.height) / Screen.width > System.Convert.ToSingle(ManualHeight) / ManualWidth)
             manualHeight = Mathf.RoundToInt(System.Convert.ToSingle(ManualWidth) / Screen.width * Screen.height);

@@ -17,10 +17,10 @@ public class UILogin : MonoBehaviour, IPointerClickHandler
 
     void Start()
     {
-        /*Init();
+        Init();
         InitEvent();
-        OnAddStage();*/
-        DoLua();
+        OnAddStage();
+        //DoLua();
     }
 
     private LuaSvr svr;

@@ -5,14 +5,22 @@ public class GameStart : MonoBehaviour
 {
     void Awake()
     {
-
     }
 
     void Start()
     {
+        TestReflection.TestActivator(); return;
+        InitUI();
+        InitNetClient();
+        return;
         /*InitUI();
         LoadHero();*/
         Test();
+    }
+
+    private void InitNetClient()
+    {
+        CClientNetworkCtrl.Instance.Connect(NetClient.host, NetClient.port);
     }
 
     void Update()

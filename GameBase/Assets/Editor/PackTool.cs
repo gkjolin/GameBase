@@ -3,7 +3,8 @@ using System.Collections;
 using UnityEditor;
 using System.IO;
 
-public class PackTool : MonoBehaviour {
+public class PackTool : MonoBehaviour
+{
 
     [MenuItem("PackTool/Pack")]
     public static void Pack()
@@ -45,6 +46,26 @@ public class PackTool : MonoBehaviour {
             ai.assetBundleName = fi.Name.Substring(0, fi.Name.Length - 7);
         }
         AssetDatabase.Refresh();
+    }
+
+    [MenuItem("PackTool/PackClass")]
+    public static void PackClass()
+    {
+
+        /*AssetDatabase.RemoveUnusedAssetBundleNames();
+        string[] arrFolders = AssetDatabase.GetSubFolders("Assets/Scripts/StaticData");
+        for (int i = 0; i < arrFolders.Length; i++)
+        {
+            string folderName = arrFolders[i];
+            AssetImporter ai = AssetImporter.GetAtPath(folderName);
+            DirectoryInfo di = new DirectoryInfo(Application.dataPath + folderName);
+            ai.assetBundleName = di.Name;
+        }*/
+        AssetImporter ai = AssetImporter.GetAtPath("Assets/Scripts/StaticData");
+        DirectoryInfo di = new DirectoryInfo(Application.dataPath + "Assets/Scripts/StaticData");
+        ai.assetBundleName = di.Name;
+        AssetDatabase.Refresh();
+        Pack();
     }
 
 }

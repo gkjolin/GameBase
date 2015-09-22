@@ -23,7 +23,8 @@ namespace Game
         private IAsyncResult m_ar_Send;
         private IAsyncResult m_ar_Connect;
         private Socket m_ClientSocket;
-        private string m_strRomoteIP = "127.0.0.1";
+        //private string m_strRomoteIP = "127.0.0.1";
+        private string m_strRomoteIP = "192.168.18.116";
         private ushort m_uRemotePort;
         private INetMessageReader m_Reader;
         private INetMessageWriter m_Writer;
@@ -31,6 +32,8 @@ namespace Game
         private MemoryStreamEx m_ComunicationMem = new MemoryStreamEx();
         private object m_eNetWorkState = EClientNetWorkState.E_CNWS_NOT_UNABLE;
         private Queue<byte[]> m_SendQueue = new Queue<byte[]>();
+        private string url = "192.168.18.116";
+        private int port = 9000;
 
 
         public CClientNetworkCtrl()
@@ -268,6 +271,7 @@ namespace Game
                 }
                 this.Receive();
                 m_eNetWorkState = EClientNetWorkState.E_CNWS_CONNECTED;
+                UnityEngine.Debug.Log("connection success");
             }
             catch (Exception e)
             {

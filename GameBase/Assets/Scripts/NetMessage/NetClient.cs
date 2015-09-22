@@ -88,7 +88,8 @@ namespace Game
         
         public static bool IsOffline = false;//是否离线模式
         public static bool IsLogWork = false;//是否 输出log
-        public static string host = "10.50.1.60";
+        //public static string host = "10.50.1.60";
+        public static string host = "192.168.18.116";
         //public static string host = "10.50.2.6";
         public static ushort port = 9000;
         
