@@ -51,13 +51,19 @@ namespace ExcelToJson
                 //for (int j = 0; j < col; j++)
                 for (int j = 1; j < col; j++)
                 {
-                    object value = dt.Rows[i][j];
+                    var value = dt.Rows[i][j];
                     if (value == null || value.ToString() == "")
                     {
-                        break;
+                        continue;
                     }
                     string key = dt.Rows[0][j].ToString();
                     string type = dt.Rows[1][j].ToString();
+                    
+                    if(type != "int" )
+                    {
+                        value = value.ToString().Replace('，', ',');  //中文 逗号转为 英文逗号
+                    }
+
                     if (type == "int")
                     {
                         sub_jd[key] = Convert.ToInt32(value);
@@ -68,6 +74,11 @@ namespace ExcelToJson
                     }else if(type == "float")
                     {
                         sub_jd[key] = Convert.ToSingle(value);
+                    }
+                    else if (type == "string[]" || type == "int[]")
+                    {
+                        JsonData d = JsonMapper.ToObject(value.ToString());
+                        sub_jd[key] = d;
                     }
                 }
                 string id = ds.Tables[0].Rows[i][1].ToString();
@@ -88,7 +99,7 @@ namespace ExcelToJson
             string fn = fileName + ".txt";
             string path = @"E:\work_A\tech\ClientNew\AProject\Assets\Resources\Data\" + fn;
             //string path = "E://tables//json/" + fn;
-            
+
 
             StreamWriter sw = new StreamWriter(path, false);
             sw.Write(json);
