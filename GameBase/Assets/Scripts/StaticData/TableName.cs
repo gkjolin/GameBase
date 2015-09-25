@@ -62,7 +62,6 @@ namespace Game
         {
             object obj = Assembly.GetExecutingAssembly().CreateInstance(className);
             Type t = obj.GetType();
-            FieldInfo fiSex = t.GetField("sex");
             for (int i = 0; i < fields.Length; i++)
             {
                 string field = fields[i];
