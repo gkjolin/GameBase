@@ -43,7 +43,6 @@ namespace ExcelToJson
             int col = dt.Columns.Count;
 
             JsonData jd_root = new JsonData();
-            //jd_root["name"] = tableName;
             //for (int i = 2; i < row; i++)
             for (int i = 4; i < row; i++)
             {
@@ -58,8 +57,8 @@ namespace ExcelToJson
                     }
                     string key = dt.Rows[0][j].ToString();
                     string type = dt.Rows[1][j].ToString();
-                    
-                    if(type != "int" )
+
+                    if (type != "int")
                     {
                         value = value.ToString().Replace('，', ',');  //中文 逗号转为 英文逗号
                     }
@@ -71,7 +70,8 @@ namespace ExcelToJson
                     else if (type == "string")
                     {
                         sub_jd[key] = value.ToString();
-                    }else if(type == "float")
+                    }
+                    else if (type == "float")
                     {
                         sub_jd[key] = Convert.ToSingle(value);
                     }
@@ -128,8 +128,140 @@ namespace ExcelToJson
             for (int l = 0; l < arrFiles.Length; l++)
             {
                 Console.WriteLine("file name : " + arrFiles[l].Name);
-                ConvertExcel(arrFiles[l].FullName, arrFiles[l].Name);
+                //ConvertExcel(arrFiles[l].FullName, arrFiles[l].Name);
+                ExcelToCS(arrFiles[l].FullName, arrFiles[l].Name);
+                ConvertExcelToTxt(arrFiles[l].FullName, arrFiles[l].Name);
             }
         }
+
+        public static void WriteToTxt(string fileName, string content)
+        {
+            if (Directory.Exists(@"E:\work_A\tech\ClientNew\AProject\Assets\Resources\Data\txt\") == false)
+            {
+                Directory.CreateDirectory(@"E:\work_A\tech\ClientNew\AProject\Assets\Resources\Data\txt\");
+            }
+            string fn = "Table_"+fileName + ".txt";
+            string path = @"E:\work_A\tech\ClientNew\AProject\Assets\Resources\Data\txt\" + fn;
+            //string path = "E://tables//json/" + fn;
+            StreamWriter sw = new StreamWriter(path, false);
+            sw.Write(content);
+            sw.Close();
+            sw.Dispose();
+        }
+
+        private static void ConvertExcelToTxt(string fullPath, string fileName)
+        {
+            FileStream fs = File.Open(fullPath, FileMode.Open, FileAccess.Read);
+            IExcelDataReader dataReader;
+            if (isXls)
+            {
+                dataReader = ExcelReaderFactory.CreateBinaryReader(fs);
+            }
+            else
+            {
+                dataReader = ExcelReaderFactory.CreateOpenXmlReader(fs);
+            }
+            DataSet ds = dataReader.AsDataSet();
+            string tableName = ds.Tables[0].TableName;
+            DataTable dt = ds.Tables[0];
+            int row = dt.Rows.Count;
+            int col = dt.Columns.Count;
+            string tableContent = "";
+            for (int i = 0; i < row; i++)
+            {
+                if (i == 2 || i == 3)
+                {
+                    continue;
+                }
+                for (int j = 1; j < col; j++)
+                {
+                    string value = dt.Rows[i][j].ToString();
+                    value = value.ToString().Replace('，', ',');  //中文 逗号转为 英文逗号
+                    if (j == col - 1)
+                    {
+                        tableContent = tableContent + value;
+                    }
+                    else
+                    {
+                        tableContent = tableContent + value + "\t";
+                    }
+                }
+                if (dt.Rows[i][1].ToString() == "")
+                {
+                    break;
+                }
+                else
+                {
+                    tableContent = tableContent + "\r\n";
+                }
+            }
+            WriteToTxt(tableName, tableContent);
+            //Console.WriteLine("--------------- " + tableContent);
+            // WriteToJson(tableName, jd_root.ToJson());
+        }
+
+
+        private static void WriteToCS(string fileName, string content)
+        {
+            //string fn = fileName.Replace("xlsx", "cs");
+            string path = @"E:\work_A\tech\ClientNew\AProject\Assets\Scripts\Tables\";
+            string fn = fileName + ".cs";
+            if (Directory.Exists(path) == false)
+            {
+                Directory.CreateDirectory(path);
+            }
+            string csPath = path + fn;
+            FileInfo fi = new FileInfo(csPath);
+            StreamWriter sw = fi.CreateText();
+            sw.Write(content);
+            sw.Close();
+            sw.Dispose();
+        }
+        private static void ExcelToCS(string fullPath, string fileName)
+        {
+
+            FileStream fs = File.Open(fullPath, FileMode.Open, FileAccess.Read);
+            IExcelDataReader dataReader = ExcelReaderFactory.CreateOpenXmlReader(fs);
+            DataSet ds = dataReader.AsDataSet();
+            string tableName = "Table_" + ds.Tables[0].TableName;
+            object[] _files = ds.Tables[0].Rows[0].ItemArray;
+            object[] _types = ds.Tables[0].Rows[1].ItemArray;
+            string filed = "";
+
+            List<string> aaa = new List<string>();
+
+            for (int i = 1; i < _files.Length; i++)
+            {
+
+                string type = _types[i].ToString();
+                if (type == "" || (_files[i].ToString())=="")
+                {
+                    continue;
+                    Console.WriteLine("-----------------------*********************");
+                }
+                if (type.Contains("[]"))
+                {
+                    string arrType = type.Replace("[]", "");
+                    filed += "\r\n\t\tpublic List<" + arrType + "> " + _files[i] + " = new List<" + arrType + ">();";
+                }
+                else
+                {
+                    filed += "\r\n\t\tpublic " + _types[i].ToString() + " " + _files[i].ToString() + ";";
+                }
+            }
+
+            string className = "\tpublic class " + tableName + " \r\n\t{";
+            string content = "" + strHead + className + filed + "\r\n\t} \r\n}";
+            //Console.WriteLine("content  : " + content);
+            WriteToCS(tableName, content);
+        }
+        private static string strHead = @"using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Game
+{
+";
     }
 }
